@@ -516,7 +516,7 @@
                             <!-- Contact Us Circle Start -->
                             <div class="contact-us-circle">
                                 <a href="{{ route('contact') }}">
-                                    <img src="{{ asset('images/contact-us-circle.svg') }}" alt="">
+                                    <img src="{{ asset('images/contact-us-circle.svg') }}?v={{ file_exists(public_path('images/contact-us-circle.svg')) ? filemtime(public_path('images/contact-us-circle.svg')) : time() }}" alt="Contact Us">
                                 </a>
                             </div>
                             <!-- Contact Us Circle End -->
