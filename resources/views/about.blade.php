@@ -428,7 +428,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- How Work Step Box Start -->
-                    <div class="how-work-step-box wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="how-work-step-box how-work-step-5 wow fadeInUp" data-wow-delay="0.2s">
                         <!-- How Work Item Start -->
                         <div class="how-work-item">
                             <div class="how-work-step-no">
@@ -436,17 +436,17 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-image-1.jpg') }}" alt="">
+                                    <img src="{{ asset('images/how-it-work-wheat-selection.jpg') }}" alt="Wheat Selection">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
-                                    <h3>Soil Assessment & Planning</h3>
-                                    <p>We analyze the soil's nutrients, texture, and structure to understand its strengths</p>
+                                    <h3>Wheat Selection</h3>
+                                    <p>Selected grains.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>Comprehensive Soil Testing & Analysis</li>
+                                        <li>100% Pure Sharbati Wheat</li>
                                     </ul>
                                 </div>
                             </div>
@@ -460,17 +460,17 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-image-2.jpg') }}" alt="">
+                                    <img src="{{ asset('images/how-it-work-cleaning.jpg') }}" alt="Cleaning">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
-                                    <h3>Seed Selection & Planting</h3>
-                                    <p>High-quality organic seeds are selected and planted using eco-friendly farming methods</p>
+                                    <h3>Cleaning</h3>
+                                    <p>Carefully cleaned.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>Comprehensive Soil Testing & Analysis</li>
+                                        <li>Multi-Stage Impurity Removal</li>
                                     </ul>
                                 </div>
                             </div>
@@ -484,17 +484,17 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-image-3.jpg') }}" alt="">
+                                    <img src="{{ asset('images/how-it-work-chakki-grinding.jpg') }}" alt="Chakki Grinding">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
-                                    <h3>Natural Growth & Care</h3>
-                                    <p>Crops are nurtured with organic fertilizers and along water-efficient irrigation systems</p>
+                                    <h3>Chakki Grinding</h3>
+                                    <p>Traditional grinding.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>Comprehensive Soil Testing & Analysis</li>
+                                        <li>Slow Stone Chakki Grinding</li>
                                     </ul>
                                 </div>
                             </div>
@@ -508,17 +508,41 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-image-4.jpg') }}" alt="">
+                                    <img src="{{ asset('images/how-it-work-quality-check.jpg') }}" alt="Quality Check">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
-                                    <h3>Harvesting & Fresh Delivery</h3>
-                                    <p>They are harvested responsibly and delivered straight from our fields to your doorstep.</p>
+                                    <h3>Quality Check</h3>
+                                    <p>Batch focused.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>Comprehensive Soil Testing & Analysis</li>
+                                        <li>Lab Tested Moisture & Purity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- How Work Item End -->
+
+                        <!-- How Work Item Start -->
+                        <div class="how-work-item">
+                            <div class="how-work-step-no">
+                                <h3>05</h3>
+                            </div>
+                            <div class="how-work-item-image">
+                                <figure class="image-anime">
+                                    <img src="{{ asset('images/how-it-work-packaging.jpg') }}" alt="Packaging">
+                                </figure>
+                            </div>
+                            <div class="how-work-item-body">
+                                <div class="how-work-item-content">
+                                    <h3>Packaging</h3>
+                                    <p>Carefully packed.</p>
+                                </div>
+                                <div class="how-work-item-list">
+                                    <ul>
+                                        <li>Food-Grade Airtight Bags</li>
                                     </ul>
                                 </div>
                             </div>
