@@ -518,4 +518,54 @@ class ProductController extends Controller
 
         return !empty($items) ? $items : null;
     }
+
+    /**
+     * Delete a single gallery image from the product via AJAX.
+     */
+    public function deleteGalleryImage(Request $request, Product $product)
+    {
+        $index = $request->input('index');
+        $imagePath = $request->input('image');
+
+        $gallery = is_array($product->gallery_images) ? $product->gallery_images : [];
+
+        $target = null;
+        $deleted = false;
+
+        // 1. Try matching by exact image path
+        if ($imagePath !== null && ($key = array_search($imagePath, $gallery, true)) !== false) {
+            $target = $gallery[$key];
+            unset($gallery[$key]);
+            $deleted = true;
+        }
+        // 2. Fallback to index if valid
+        elseif ($index !== null && isset($gallery[$index])) {
+            $target = $gallery[$index];
+            unset($gallery[$index]);
+            $deleted = true;
+        }
+
+        if (!$deleted) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Image not found in gallery.'
+            ], 404);
+        }
+
+        // Delete uploaded file from storage if stored in public disk
+        if (!empty($target) && !Str::startsWith($target, 'images/')) {
+            if (Storage::disk('public')->exists($target)) {
+                Storage::disk('public')->delete($target);
+            }
+        }
+
+        $product->gallery_images = array_values($gallery);
+        $product->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Gallery photo deleted successfully!',
+            'remaining_count' => count($product->gallery_images),
+        ]);
+    }
 }

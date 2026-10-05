@@ -70,6 +70,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('products', AdminProductController::class)->except(['show']);
         Route::post('/products/{product}/toggle-status', [AdminProductController::class, 'toggleStatus'])->name('products.toggle-status');
         Route::post('/products/{product}/toggle-featured', [AdminProductController::class, 'toggleFeatured'])->name('products.toggle-featured');
+        Route::delete('/products/{product}/gallery-image', [AdminProductController::class, 'deleteGalleryImage'])->name('products.delete-gallery-image');
 
         // Blog Management
         Route::resource('blogs', AdminBlogController::class)->except(['show']);

@@ -872,11 +872,17 @@
 
             <!-- 4. Additional Gallery Photos (Slider) -->
             <div class="card-syndron" style="margin-bottom: 0;">
-                <div class="card-syndron-header" style="padding: 1.25rem 1.5rem;">
+                <div class="card-syndron-header" style="padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between;">
                     <h3 class="card-syndron-title" style="font-size: 1rem;">
                         <i class="fa-solid fa-images" style="color: var(--accent);"></i>
                         <span>Additional Gallery Photos</span>
                     </h3>
+                    @php
+                        $galleryCount = (!empty($product->gallery_images) && is_array($product->gallery_images)) ? count($product->gallery_images) : 0;
+                    @endphp
+                    <span id="galleryCountBadge" style="font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; background: rgba(239, 128, 28, 0.12); color: #EF801C;">
+                        {{ $galleryCount }} {{ \Illuminate\Support\Str::plural('Photo', $galleryCount) }}
+                    </span>
                 </div>
 
                 <div class="card-syndron-body" style="padding: 1.25rem 1.5rem;">
@@ -891,17 +897,36 @@
                             accept="image/png,image/jpeg,image/webp,image/jpg"
                             class="form-control-admin"
                         >
-                        <div class="form-hint">Upload extra photos for the thumbnail slider in Image 2.</div>
+                        <div class="form-hint">Upload extra photos for the thumbnail slider in Image 2. Hover over any photo to delete.</div>
 
-                        @if(!empty($product->gallery_images) && is_array($product->gallery_images))
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.75rem;">
-                                @foreach($product->gallery_urls as $gUrl)
-                                    <div style="width: 50px; height: 50px; border-radius: 8px; border: 1px solid var(--border); overflow: hidden; background: #fff; padding: 2px;">
-                                        <img src="{{ $gUrl }}" alt="Gallery thumbnail" style="width: 100%; height: 100%; object-fit: contain;">
+                        <!-- Gallery Thumbnails with Hover Delete -->
+                        <div id="galleryThumbnailsContainer" class="gallery-thumbs-grid" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1rem;">
+                            @if(!empty($product->gallery_images) && is_array($product->gallery_images))
+                                @foreach($product->gallery_images as $gIdx => $gPath)
+                                    @php
+                                        $thumbUrl = \Illuminate\Support\Str::startsWith($gPath, ['http://', 'https://'])
+                                            ? $gPath
+                                            : (\Illuminate\Support\Str::startsWith($gPath, 'images/') ? asset($gPath) : storage_asset($gPath));
+                                    @endphp
+                                    <div class="gallery-thumb-item" id="galleryThumb_{{ $gIdx }}" data-index="{{ $gIdx }}" data-path="{{ $gPath }}" title="Hover to delete photo">
+                                        <img src="{{ $thumbUrl }}" alt="Gallery thumbnail" class="gallery-thumb-img">
+                                        <div class="gallery-thumb-overlay">
+                                            <button
+                                                type="button"
+                                                class="gallery-thumb-delete-btn"
+                                                title="Delete this image"
+                                                onclick="deleteProductGalleryPhoto({{ $product->id }}, {{ $gIdx }}, '{{ addslashes($gPath) }}')"
+                                            >
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 @endforeach
-                            </div>
-                        @endif
+                            @endif
+                        </div>
+                        <div id="noGalleryPhotosMsg" style="{{ (!empty($product->gallery_images) && count($product->gallery_images) > 0) ? 'display: none;' : '' }} margin-top: 0.5rem; font-size: 0.775rem; color: var(--muted-foreground);">
+                            No additional gallery photos uploaded yet.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1379,6 +1404,90 @@
         align-items: center;
         gap: 4px;
     }
+
+    /* Additional Gallery Photos Thumbnail Grid & Hover Delete */
+    .gallery-thumbs-grid {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .gallery-thumb-item {
+        position: relative;
+        width: 62px;
+        height: 62px;
+        border-radius: 10px;
+        border: 1px solid var(--border, #e2e8f0);
+        overflow: hidden;
+        background: #ffffff;
+        padding: 3px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    html.dark .gallery-thumb-item {
+        background: #1e293b;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    .gallery-thumb-item:hover {
+        border-color: #ef4444;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+        transform: translateY(-2px);
+    }
+    .gallery-thumb-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 7px;
+        display: block;
+        transition: transform 0.25s ease;
+    }
+    .gallery-thumb-item:hover .gallery-thumb-img {
+        transform: scale(1.08);
+    }
+    .gallery-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.65);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        border-radius: 9px;
+    }
+    .gallery-thumb-item:hover .gallery-thumb-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+    .gallery-thumb-delete-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #ef4444;
+        color: #ffffff;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.45);
+        transform: scale(0.85);
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-thumb-delete-btn:hover {
+        background: #dc2626;
+        transform: scale(1.12);
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.6);
+    }
+    .gallery-thumb-delete-btn:active {
+        transform: scale(0.95);
+    }
 </style>
 @endpush
 
@@ -1667,6 +1776,82 @@
         `;
         container.appendChild(newCard);
         newCard.querySelector('.dish-title-input').focus();
+    }
+
+    /**
+     * Delete an individual gallery photo via AJAX on hover click.
+     */
+    function deleteProductGalleryPhoto(productId, index, imagePath) {
+        if (!confirm('Are you sure you want to delete this gallery photo?')) {
+            return;
+        }
+
+        const itemEl = document.getElementById('galleryThumb_' + index) || document.querySelector(`[data-path="${imagePath}"]`);
+        const btn = itemEl ? itemEl.querySelector('.gallery-thumb-delete-btn') : null;
+
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+        }
+
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+            || document.querySelector('input[name="_token"]')?.value;
+
+        fetch(`{{ url('admin/products') }}/${productId}/gallery-image`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                index: index,
+                image: imagePath
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                if (itemEl) {
+                    itemEl.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                    itemEl.style.opacity = '0';
+                    itemEl.style.transform = 'scale(0.3)';
+                    setTimeout(() => {
+                        itemEl.remove();
+                        const container = document.getElementById('galleryThumbnailsContainer');
+                        const remaining = container ? container.querySelectorAll('.gallery-thumb-item').length : 0;
+                        const badge = document.getElementById('galleryCountBadge');
+                        if (badge) {
+                            badge.textContent = remaining + (remaining === 1 ? ' Photo' : ' Photos');
+                        }
+                        if (remaining === 0) {
+                            const emptyMsg = document.getElementById('noGalleryPhotosMsg');
+                            if (emptyMsg) emptyMsg.style.display = 'block';
+                        }
+                    }, 300);
+                }
+
+                if (typeof window.showSonnerToast === 'function') {
+                    window.showSonnerToast({ message: data.message || 'Gallery photo deleted successfully!', type: 'success' });
+                } else {
+                    alert('Gallery photo deleted successfully!');
+                }
+            } else {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+                }
+                alert(data.message || 'Failed to delete photo.');
+            }
+        })
+        .catch(err => {
+            console.error('Delete gallery photo error:', err);
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+            }
+            alert('An error occurred while deleting the gallery photo.');
+        });
     }
 </script>
 @endpush
