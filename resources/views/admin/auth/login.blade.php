@@ -339,87 +339,6 @@
             transform: none;
         }
 
-        /* ── Divider ──────────────────────────────────────────────────── */
-        .login-divider {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin: 1.25rem 0;
-            color: var(--muted-foreground, #94a3b8);
-            font-size: 0.72rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .login-divider::before,
-        .login-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border, #e2e8f0);
-        }
-
-        /* ── Quick Access Pill ─────────────────────────────────────────── */
-        .quick-access {
-            background: var(--secondary, #f8fafc);
-            border: 1px dashed var(--border, #cbd5e1);
-            border-radius: 10px;
-            padding: 0.7rem 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        html.dark .quick-access {
-            background: rgba(30, 41, 59, 0.4);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .quick-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
-
-        .quick-title {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: var(--foreground, #1e293b);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .quick-title i { color: #EF801C; font-size: 0.7rem; }
-
-        .quick-code {
-            font-size: 0.7rem;
-            color: var(--muted-foreground, #64748b);
-            font-family: 'SF Mono', 'Fira Code', monospace;
-        }
-
-        .btn-quick-fill {
-            background: transparent;
-            border: 1px solid var(--border, #e2e8f0);
-            color: #EF801C;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-
-        .btn-quick-fill:hover {
-            background: #EF801C;
-            color: #ffffff;
-            border-color: #EF801C;
-        }
 
         /* ── Footer ───────────────────────────────────────────────────── */
         .login-footer {
@@ -499,8 +418,8 @@
                         name="email"
                         id="email"
                         class="form-control"
-                        placeholder="admin@raghuvir.com"
-                        value="{{ old('email', 'admin@raghuvir.com') }}"
+                        placeholder="Enter your email"
+                        value="{{ old('email') }}"
                         required
                         autofocus
                     >
@@ -518,7 +437,7 @@
                         id="password"
                         class="form-control"
                         placeholder="Enter your password"
-                        value="Admin@12345"
+                        value=""
                         required
                     >
                     <button type="button" class="pwd-toggle" onclick="togglePassword()" id="pwdToggleBtn" title="Show/Hide password">
@@ -530,7 +449,7 @@
             <!-- Remember & Link -->
             <div class="options-row">
                 <label class="remember-label" for="remember">
-                    <input type="checkbox" name="remember" id="remember" {{ old('remember', '1') ? 'checked' : '' }}>
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <span>Remember me</span>
                 </label>
                 <a href="{{ url('/') }}" target="_blank" class="forgot-link">
@@ -544,24 +463,6 @@
                 <i class="fa-solid fa-arrow-right" id="btnIcon"></i>
             </button>
         </form>
-
-        <!-- Divider -->
-        <div class="login-divider">Quick Access</div>
-
-        <!-- Quick Fill -->
-        <div class="quick-access">
-            <div class="quick-info">
-                <span class="quick-title">
-                    <i class="fa-solid fa-key"></i>
-                    Default Credentials
-                </span>
-                <span class="quick-code">admin@raghuvir.com &bull; Admin@12345</span>
-            </div>
-            <button type="button" class="btn-quick-fill" onclick="autoFillCredentials()" title="Auto-fill credentials">
-                <i class="fa-solid fa-bolt-lightning"></i>
-                Fill
-            </button>
-        </div>
 
         <!-- Footer -->
         <div class="login-footer">
@@ -585,28 +486,6 @@
             } else {
                 pwdInput.type = 'password';
                 pwdIcon.classList.replace('fa-eye-slash', 'fa-eye');
-            }
-        }
-
-        // Auto Fill
-        function autoFillCredentials() {
-            const emailInput = document.getElementById('email');
-            const pwdInput = document.getElementById('password');
-
-            emailInput.value = 'admin@raghuvir.com';
-            pwdInput.value = 'Admin@12345';
-
-            [emailInput, pwdInput].forEach(el => {
-                el.style.borderColor = '#EF801C';
-                el.style.backgroundColor = 'rgba(239, 128, 28, 0.06)';
-                setTimeout(() => {
-                    el.style.borderColor = '';
-                    el.style.backgroundColor = '';
-                }, 500);
-            });
-
-            if (typeof window.showSonnerToast === 'function') {
-                window.showSonnerToast({ message: 'Credentials filled!', type: 'success' });
             }
         }
 
