@@ -25,21 +25,6 @@ class PageController extends Controller
         return view('index', compact('latestBlogs', 'featuredProducts'));
     }
 
-    public function homeV2()
-    {
-        return view('index-2');
-    }
-
-    public function homeV3()
-    {
-        return view('index-3');
-    }
-
-    public function homeV4()
-    {
-        return view('index-4');
-    }
-
     public function about()
     {
         return view('about');
