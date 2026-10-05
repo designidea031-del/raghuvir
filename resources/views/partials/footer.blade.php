@@ -14,7 +14,7 @@
 
                             <!-- Section Title Start -->
                             <div class="footer-contact-info-content">
-                                <p>{{ setting('footer_about', 'We are committed to sustainable farming, nurturing healthy soil, and providing pure, organic produce straight from our fields to your table.') }}</p>
+                                <p>{{ setting('footer_about', 'Raghuvir Foods is a hygienic chakki atta brand from Gandhinagar, Gujarat. Pure wheat, traditional grinding, and trust.') }}</p>
                             </div>
                             <!-- Section Title End -->
 
@@ -120,7 +120,7 @@
                                     <button type="submit" class="newsletter-btn"><i class="fa-regular fa-paper-plane"></i></button>
                                 </div>
                             </form>
-                            <p>** Stay informed with the latest harvest news, seasonal product launches</p>
+                            <p>Subscribe for new products and seasonal offers.</p>
                         </div>
                         <!-- Footer Newsletter Form End -->
 

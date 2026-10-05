@@ -96,16 +96,25 @@ if (!function_exists('google_map_embed_url')) {
             return $input;
         }
 
-        // 3. If it's a short link (maps.app.goo.gl or goo.gl/maps), resolve redirects
+        // 3. If it's a short link (maps.app.goo.gl or goo.gl/maps), resolve redirects instantly via Location header
         if (str_contains($input, 'maps.app.goo.gl') || str_contains($input, 'goo.gl/maps')) {
             try {
-                $response = \Illuminate\Support\Facades\Http::withHeaders([
-                    'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                ])->timeout(5)->get($input);
+                $response = \Illuminate\Support\Facades\Http::withoutVerifying()
+                    ->withoutRedirecting()
+                    ->withHeaders([
+                        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                    ])
+                    ->timeout(4)
+                    ->get($input);
 
-                $resolved = (string) $response->effectiveUri();
-                if (!empty($resolved) && $resolved !== $input) {
-                    $input = $resolved;
+                $redirectUrl = $response->header('Location');
+                if (!empty($redirectUrl)) {
+                    $input = $redirectUrl;
+                } else {
+                    $resolved = (string) $response->effectiveUri();
+                    if (!empty($resolved) && $resolved !== $input) {
+                        $input = $resolved;
+                    }
                 }
             } catch (\Throwable $e) {
                 // If network timeout or offline, continue with regex parsing
@@ -116,6 +125,7 @@ if (!function_exists('google_map_embed_url')) {
         $lat = null;
         $lng = null;
         $placeName = null;
+        $placeId = null;
 
         // Check !3d23.0965117!4d72.7689042 format
         if (preg_match('/!3d([0-9.-]+)!4d([0-9.-]+)/', $input, $coords)) {
@@ -127,17 +137,32 @@ if (!function_exists('google_map_embed_url')) {
         }
 
         // Check /place/NAME/ format
-        if (preg_match('/\/place\/([^@\/?]+)/', $input, $placeMatches)) {
+        if (preg_match('/\/place\/([^@\/?#]+)/', $input, $placeMatches)) {
             $placeName = urldecode(str_replace('+', ' ', $placeMatches[1]));
         }
 
-        // 5. If we have coordinates, build query with place name + coordinates
-        if ($lat && $lng) {
-            $query = $placeName ? ($placeName . ' ' . $lat . ',' . $lng) : ($lat . ',' . $lng);
-            return 'https://maps.google.com/maps?q=' . urlencode($query) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
+        // Check !1s0x...:0x... Google Place ID
+        if (preg_match('/!1s(0x[0-9a-fA-F]+:0x[0-9a-fA-F]+)/', $input, $idMatches)) {
+            $placeId = $idMatches[1];
         }
 
-        // 6. If we have place name
+        // Check if satellite/hybrid view is requested in URL (!1e3 or t=k/h)
+        $isSatellite = str_contains($input, '!1e3') || str_contains($input, 't=k') || str_contains($input, 't=h');
+        $layerType = $isSatellite ? '!5e1' : '!5e0';
+
+        // 5. If we have a verified Place ID + coordinates, generate the official Google Embed PB URL (with business card and pin)
+        if ($placeId && $lat && $lng) {
+            $nameParam = $placeName ? ('!2s' . rawurlencode($placeName)) : '';
+            return "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1088.34!2d{$lng}!3d{$lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s" . rawurlencode($placeId) . "{$nameParam}{$layerType}!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+        }
+
+        // 6. If we have coordinates only
+        if ($lat && $lng) {
+            $label = $placeName ? ('+(' . urlencode($placeName) . ')') : '';
+            return "https://maps.google.com/maps?q={$lat},{$lng}{$label}&hl=en&z=16&output=embed";
+        }
+
+        // 7. If we have place name only
         if ($placeName) {
             return 'https://maps.google.com/maps?q=' . urlencode($placeName) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
         }

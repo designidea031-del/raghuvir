@@ -48,7 +48,7 @@
                         <!-- Contact Us Image Start -->
                         <div class="contact-us-image">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/contact-us-img.jpg') }}" alt="">
+                                <img src="{{ asset('images/contact-us-customer-support.jpg') }}" alt="Raghuvir Foods customer support and enquiry assistance">
                             </figure>
                         </div>
                         <!-- Contact Us Image End -->

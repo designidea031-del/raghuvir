@@ -1163,7 +1163,7 @@
             if (vpTablet) vpTablet.classList.add('active');
             if (deviceFrame) deviceFrame.style.maxWidth = '768px';
             if (browserBar) browserBar.style.display = 'flex';
-            if (canvas) canvas.style.height = '340px';
+            if (canvas) canvas.style.height = '320px';
             if (navMenu) navMenu.style.display = 'flex';
             if (ctaBtn) ctaBtn.style.display = 'flex';
             if (burgerIcon) burgerIcon.style.display = 'none';
@@ -1172,7 +1172,7 @@
             if (vpMobile) vpMobile.classList.add('active');
             if (deviceFrame) deviceFrame.style.maxWidth = '390px';
             if (browserBar) browserBar.style.display = 'none';
-            if (canvas) canvas.style.height = '310px';
+            if (canvas) canvas.style.height = '245px';
             if (navMenu) navMenu.style.display = 'none';
             if (ctaBtn) ctaBtn.style.display = 'none';
             if (burgerIcon) burgerIcon.style.display = 'block';

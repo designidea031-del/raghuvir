@@ -81,7 +81,9 @@
 	<meta name="twitter:description" content="@yield('twitter_description', $ogDescription)">
 	<meta name="twitter:image" content="@yield('twitter_image', $ogImage)">
 
-@if(!empty($schemaJson))
+@hasSection('schema')
+	@yield('schema')
+@elseif(!empty($schemaJson))
 	<!-- JSON-LD Structured Data Schema -->
 	<script type="application/ld+json">
 	{!! $schemaJson !!}

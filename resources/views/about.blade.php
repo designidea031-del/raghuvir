@@ -1,6 +1,124 @@
 @extends('layouts.app')
 
-@section('title', 'Soilux - Agriculture & Organic Farm HTML Template')
+@section('title', 'About Raghuvir Foods | Hygienic Chakki Atta Maker in Gandhinagar, Gujarat')
+@section('meta_description', 'Know the story of Raghuvir Foods: our wheat selection, traditional chakki grinding, hygienic packing and the people behind Gujarat\'s pure chakki atta.')
+@section('og_title', 'About Raghuvir Foods | Hygienic Chakki Atta Maker in Gandhinagar, Gujarat')
+@section('og_description', 'Know the story of Raghuvir Foods: our wheat selection, traditional chakki grinding, hygienic packing and the people behind Gujarat\'s pure chakki atta.')
+
+@section('schema')
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "{{ url('/about#webpage') }}",
+      "url": "{{ url('/about') }}",
+      "name": "About Raghuvir Foods | Hygienic Chakki Atta Maker in Gandhinagar, Gujarat",
+      "description": "Know the story of Raghuvir Foods: our wheat selection, traditional chakki grinding, hygienic packing and the people behind Gujarat's pure chakki atta.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ url('/') }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About Us",
+            "item": "{{ url('/about') }}"
+          }
+        ]
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "{{ url('/#website') }}",
+        "name": "Raghuvir Foods",
+        "url": "{{ url('/') }}"
+      },
+      "about": {
+        "@type": "Organization",
+        "@id": "{{ url('/#organization') }}"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ url('/#organization') }}",
+      "name": "Raghuvir Foods",
+      "url": "{{ url('/') }}",
+      "logo": "{{ asset('images/Raghuvir Logo.png') }}",
+      "description": "Raghuvir Foods is a hygienic chakki atta brand from Gandhinagar, Gujarat. Pure wheat, traditional grinding, and trust.",
+      {{-- // TODO: Add real FSSAI registration number when available --}}
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 124, GIDC Area, Kadadara",
+        "addressLocality": "Gandhinagar",
+        "addressRegion": "Gujarat",
+        "postalCode": "382305",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 97254 27727",
+        "contactType": "customer service",
+        "email": "info@raghuviratta.com",
+        "areaServed": "IN",
+        "availableLanguage": ["en", "gu", "hi"]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "{{ url('/about#faq') }}",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is Raghuvir Foods and what do you make?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Raghuvir Foods is a hygienic chakki atta brand from Gandhinagar, Gujarat. We make Whole Wheat Atta, Bati Atta and Wheat Bran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does your atta contain any chemicals or additives?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our atta is made from 100% pure wheat, with no artificial colour, bleaching or preservatives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you keep the atta fresh during delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The atta is packed in food-grade, moisture-lock bags and dispatched within 24-48 hours of order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you accept bulk orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bulk supply is available for homes, shops, hotels and restaurants. Call us for rates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you check the wheat quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wheat is cleaned before grinding, and the finished atta is checked for moisture and purity."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+@endsection
 
 @section('content')
 <!-- Header End -->
@@ -35,11 +153,8 @@
                     <!-- About Us Image Box Start -->
                     <div class="about-us-images">
                         <div class="about-us-image-1">
-                            <figure>
-                                <video autoplay loop muted playsinline style="width: 100%; aspect-ratio: 1 / 1.0417; object-fit: cover; border-radius: 12px; display: block;">
-                                    <source src="{{ asset('images/wheat video.mp4') }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                            <figure class="image-anime">
+                                <img src="{{ asset('images/about-us-chakki-flour.jpg') }}" alt="Fresh chakki atta on wooden platter with traditional stone grinding chakki">
                             </figure>
                         </div>
                         <!-- About Us Image 1 End -->
@@ -47,7 +162,7 @@
                         <!-- About Us Image 2 Start -->
                         <div class="about-us-image-2">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/home_about.png') }}" alt="">
+                                <img src="{{ asset('images/about-us-wheat-close.jpg') }}" alt="Pure golden wheat grains for hygienic chakki atta">
                             </figure>
                         </div>
                         <!-- About Us Image 2 End -->
@@ -61,9 +176,9 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">About Our Farm</h3>
-                            <h2 class="text-anime-style-3" data-cursor="-opaque">From soil to harvest, we believe in clean and conscious farming</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.2s">From soil preparation to the final harvest, we use sustainable, chemical-free methods that protect biodiversity, enrich the soil, and preserve natural resources.</p>
-                            <p class="wow fadeInUp" data-wow-delay="0.4s">We are committed to farming in a way that respects both the land and the people who depend on it. Every crop we grow reflects our dedication to clean, conscious agriculture and our belief in providing fresh, honest food that supports healthier living and a more sustainable future.</p>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">From Soil to Harvest, We Believe in Clean and Conscious Farming</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Raghuvir Foods started with a simple idea: every home should get pure, fresh and trustworthy atta every day. We select good quality wheat, grind it slowly in a traditional chakki, and deliver it in hygienic packing.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.4s">Our plant is in Kadadara, GIDC Area, Gandhinagar, Gujarat. From wheat selection to packing, we focus on cleanliness, quality and honesty at every step. {{-- // TODO: add FSSAI license number here --}}</p>
                         </div>
                         <!-- Section Title End -->
 
@@ -72,7 +187,7 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-1.svg') }}" alt="">
+                                    <img src="{{ asset('images/icon-about-item-1.svg') }}" alt="Sustainable Farming Practices icon">
                                 </div>
                                 <div class="about-us-item-content">
                                     <h3>Sustainable Farming Practices</h3>
@@ -83,10 +198,10 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-2.svg') }}" alt="">
+                                    <img src="{{ asset('images/icon-about-item-2.svg') }}" alt="Pure, Chemical-Free Produce icon">
                                 </div>
                                 <div class="about-us-item-content">
-                                    <h3>Pure, Chemical Free Produce</h3>
+                                    <h3>Pure, Chemical-Free Produce</h3>
                                 </div>
                             </div>
                             <!-- About Us Item End -->
@@ -94,7 +209,7 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-3.svg') }}" alt="">
+                                    <img src="{{ asset('images/icon-about-item-3.svg') }}" alt="Passion for Honest Agriculture icon">
                                 </div>
                                 <div class="about-us-item-content">
                                     <h3>Passion for Honest Agriculture</h3>
@@ -104,11 +219,6 @@
                         </div>
                         <!-- About Us Item List End -->
 
-                        <!-- About Us Button Start -->
-                        <div class="about-us-btn wow fadeInUp" data-wow-delay="0.8s">
-                            <a href="{{ route('contact') }}" class="btn-default">contact now</a>
-                        </div>
-                        <!-- About Us Button End -->
                     </div>
                     <!-- About Us Content End -->
                 </div>
@@ -127,7 +237,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">Our Approach</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Growing better through clean and responsible farming</h2>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Growing Better Through Purity, Care, and Long-Term Sustainability</h2>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -135,17 +245,11 @@
                 <div class="col-xl-6">
                     <!-- Section Content Button Start -->
                     <div class="section-content-btn">
-                        <!-- Section Title Content Start -->
+                       <!-- Section Title Content Start -->
                         <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                            <p>We follow a farming approach rooted in purity, care, and long-term sustainability. By using natural methods, protecting soil health, and avoiding harmful chemicals.</p>
+                            <p>We follow an approach built on purity, care and long-term sustainability. Protecting soil health, using water wisely and avoiding harmful substances is the base of our work.</p>
                         </div>
-                        <!-- Section Title Content End -->
-
-                        <!-- Section Button Start -->
-                        <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                            <a href="{{ route('contact') }}" class="btn-default">Learn More</a>
-                        </div>
-                        <!-- Section Button End -->
+                        <!-- Section Title Content End -->    
                     </div>
                     <!-- Section Content Button End -->
                 </div>
@@ -158,7 +262,7 @@
                         <!-- Approach Item Image Start -->
                         <div class="approach-item-image">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('images/our-approach-item-image-1.jpg') }}" alt="">
+                                <img src="{{ asset('images/our-mission-home-atta.jpg') }}" alt="Traditional home cooking with pure Raghuvir chakki atta">
                             </figure>
                         </div>
                         <!-- Approach Item Image End -->
@@ -166,11 +270,11 @@
                         <!-- Approach Item Body Start -->
                         <div class="approach-item-body">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-our-approach-item-1.svg') }}" alt="">
+                                <img src="{{ asset('images/icon-our-approach-item-1.svg') }}" alt="Our Mission icon">
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Mission</h3>
-                                <p>Our mission is to grow food with honesty, transparency, and deep respect for nature.</p>
+                                <p>To bring pure, fresh and nutritious atta to every home, with honesty, transparency and respect for nature.</p>
                                 <ul>
                                     <li>Promoting Natural Farming Practices</li>
                                 </ul>
@@ -187,7 +291,7 @@
                         <!-- Approach Item Image Start -->
                         <div class="approach-item-image">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('images/our-approach-item-image-2.jpg') }}" alt="">
+                                <img src="{{ asset('images/our-vision-raghuvir-family.jpg') }}" alt="Happy Indian family with Raghuvir Special Bati Atta in golden wheat field">
                             </figure>
                         </div>
                         <!-- Approach Item Image End -->
@@ -195,11 +299,11 @@
                         <!-- Approach Item Body Start -->
                         <div class="approach-item-body">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-our-approach-item-2.svg') }}" alt="">
+                                <img src="{{ asset('images/icon-our-approach-item-2.svg') }}" alt="Our Vision icon">
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Vision</h3>
-                                <p>To become a leading example of sustainable agriculture where innovation and nature work.</p>
+                                <p>To become the most trusted hygienic chakki atta brand in Gujarat, where sustainable farming and modern quality go together.</p>
                                 <ul>
                                     <li>Building a Sustainable Food Future</li>
                                 </ul>
@@ -210,13 +314,14 @@
                     <!-- Approach Item End -->
                 </div>
 
+                {{-- Hide client logos section until real partner logos are provided
                 <div class="col-lg-12">
                     <!-- Approach Comapany Slider Box Start -->
                     <div class="approach-company-slider-box wow fadeInUp" data-wow-delay="1s">
                         <!-- Comapany Support Content Start -->
                         <div class="company-supports-content">
                             <hr>
-                            <p>Trusted By More Than 100+ Companies</p>
+                            <p>Trusted by retailers, hotels and families across Gujarat</p>
                             <hr>
                         </div>
                         <!-- Comapany Support Content End -->
@@ -228,7 +333,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-1.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-1.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -236,7 +341,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-2.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-2.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -244,7 +349,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-3.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-3.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -252,7 +357,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-4.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-4.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -260,7 +365,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-5.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-5.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -268,7 +373,7 @@
                                     <!-- Company Support Logo Start -->
                                     <div class="swiper-slide">
                                         <div class="company-supports-logo">
-                                            <img src="{{ asset('images/company-logo-primary-3.svg') }}" alt="">
+                                            <img src="{{ asset('images/company-logo-primary-3.svg') }}" alt="Client partner logo">
                                         </div>
                                     </div>
                                     <!-- Comapany Support Logo End -->
@@ -279,6 +384,7 @@
                     </div>
                     <!-- Approach Comapany Slider Box End -->
                 </div>
+                --}}
             </div>
         </div>
     </div>
@@ -292,7 +398,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title section-title-center">
                         <h3 class="wow fadeInUp">Our Advantage</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Your source for pure, fresh, and sustainably grown produce</h2>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Your Source for Pure, Fresh, and Honestly Made Chakki Atta</h2>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -307,66 +413,29 @@
                             <!-- Our Advantage Box Body Start -->
                             <div class="our-advantage-box-body">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-our-advantage-1.svg') }}" alt="">
+                                    <img src="{{ asset('images/icon-our-advantage-1.svg') }}" alt="Pure Quality Produce icon">
                                 </div>                                
                                 <div class="our-advantage-box-content">
                                     <h3>Pure Quality Produce</h3>
-                                    <p>We grow our crops using natural, chemical-free methods.</p>
+                                    <p>We make atta from pure wheat grain, using natural and careful methods.</p>
                                 </div>
                             </div>
                             <!-- Our Advantage Box Body End -->                       
-
-                            <!-- Our Advantage Review Box Start -->
-                            <div class="our-advantage-review-box">
-                                <!-- Satisfy Client Images Start -->
-                                <div class="satisfy-client-images">
-                                    <div class="satisfy-client-image">
-                                        <figure class="image-anime">
-                                            <img src="{{ asset('images/author-1.jpg') }}" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image">
-                                        <figure class="image-anime">
-                                            <img src="{{ asset('images/author-2.jpg') }}" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image">
-                                        <figure class="image-anime">
-                                            <img src="{{ asset('images/author-3.jpg') }}" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="satisfy-client-image">
-                                        <figure class="image-anime">
-                                            <img src="{{ asset('images/author-4.jpg') }}" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <!-- Satisfy Client Images End -->
-
-                                <div class="our-advantage-review-content">
-                                    <p>More Than 200+ Happy Customers</p>
-                                </div>
-                            </div>
-                            <!-- Our Advantage Rating Box End -->
                         </div>
                         <!-- Our Advantage Box End -->
 
                         <!-- Our Advantage Box 2 Start -->
                         <div class="our-advantage-image box-2 wow fadeInUp" data-wow-delay="0.2s">
-                            <figure>
-                                <img src="{{ asset('images/our-advantage-image-1.jpg') }}" alt="">
+                            <figure class="image-anime">
+                                <img src="{{ asset('images/our-advantage-wheat-farm.jpg') }}" alt="Golden wheat field harvest for pure chakki atta">
                             </figure>
-
-                            <div class="video-play-btn">
-                                <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video" data-cursor-text="Play"><i class="fa-solid fa-play"></i></a>
-                            </div>
                         </div>
                         <!-- Our Advantage Box 2 End -->
 
                         <!-- Our Advantage Box 3 Start -->
                         <div class="our-advantage-image box-3 wow fadeInUp" data-wow-delay="0.4s">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/our-advantage-image-2.jpg') }}" alt="">
+                                <img src="{{ asset('images/our-advantage-chakki-atta.jpg') }}" alt="Fresh stone ground chakki atta flour">
                             </figure>
                         </div>
                         <!-- Our Advantage Box 3 End -->
@@ -377,7 +446,7 @@
                             <div class="our-advantage-header">
                                 <div class="our-advantage-counter-box">
                                     <div class="icon-box">
-                                        <img src="{{ asset('images/icon-our-advantage-2.svg') }}" alt="">
+                                        <img src="{{ asset('images/icon-our-advantage-2.svg') }}" alt="Years of Experience icon">
                                     </div>                                
                                     <div class="our-advantage-counter-content">
                                         <h2><span class="counter">25</span>+</h2>
@@ -392,10 +461,10 @@
 
                             <!-- Our Advantage Box Footre Start -->
                             <div class="our-advantage-box-footer">
-                                <p>We have honed our techniques to grow fresh, chemical free produce</p>
+                                <p>We keep improving our grinding and quality process with every batch.</p>
                                 <ul>
                                     <li>Eco-Friendly Farming Practices</li>
-                                    <li>Thousand of Acres of Fertile Farms</li>
+                                    <li>Trusted Wheat Sourcing</li>
                                 </ul>
                             </div> 
                             <!-- Our Advantage Box Footer End -->                             
@@ -419,7 +488,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title section-title-center">
                         <h3 class="wow fadeInUp">How It Works</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">See how we bring fresh, organic goodness straight to you</h2>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">See How We Bring Fresh, Organic Goodness to Your Kitchen</h2>
                     </div>
                     <!-- Section Title End -->
                 </div>                
@@ -436,17 +505,17 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-wheat-selection.jpg') }}" alt="Wheat Selection">
+                                    <img src="{{ asset('images/how-it-work-wheat-selection.jpg') }}" alt="Wheat Selection for Raghuvir chakki atta">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
                                     <h3>Wheat Selection</h3>
-                                    <p>Selected grains.</p>
+                                    <p>Pure selected wheat grains.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>100% Pure Sharbati Wheat</li>
+                                        <li>Pure Selected Wheat Grains</li>
                                     </ul>
                                 </div>
                             </div>
@@ -460,13 +529,13 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-cleaning.jpg') }}" alt="Cleaning">
+                                    <img src="{{ asset('images/how-it-work-cleaning.jpg') }}" alt="Cleaning and dust impurity removal">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
                                     <h3>Cleaning</h3>
-                                    <p>Carefully cleaned.</p>
+                                    <p>Multi-stage dust and impurity removal.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
@@ -484,13 +553,13 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-chakki-grinding.jpg') }}" alt="Chakki Grinding">
+                                    <img src="{{ asset('images/how-it-work-chakki-grinding.jpg') }}" alt="Slow traditional stone chakki grinding">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
                                     <h3>Chakki Grinding</h3>
-                                    <p>Traditional grinding.</p>
+                                    <p>Slow, traditional stone grinding.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
@@ -508,17 +577,17 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-quality-check.jpg') }}" alt="Quality Check">
+                                    <img src="{{ asset('images/how-it-work-quality-check.jpg') }}" alt="Moisture and purity quality check">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
                                     <h3>Quality Check</h3>
-                                    <p>Batch focused.</p>
+                                    <p>Moisture and purity tested.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
-                                        <li>Lab Tested Moisture & Purity</li>
+                                        <li>Moisture and Purity Tested</li>
                                     </ul>
                                 </div>
                             </div>
@@ -532,13 +601,13 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-packaging.jpg') }}" alt="Packaging">
+                                    <img src="{{ asset('images/how-it-work-packaging.jpg') }}" alt="Food-grade airtight moisture-lock packaging">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
                                 <div class="how-work-item-content">
                                     <h3>Packaging</h3>
-                                    <p>Carefully packed.</p>
+                                    <p>Food-grade airtight bags.</p>
                                 </div>
                                 <div class="how-work-item-list">
                                     <ul>
@@ -550,32 +619,13 @@
                         <!-- How Work Item End -->
                     </div>
                     <!-- How Work Step Box End -->
-                </div>
-
-                <div class="col-lg-12">
-                    <!-- Section Footer Text Start -->
-                    <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Satisfy Client Images Start -->
-                        <div class="satisfy-client-images">
-                            <div class="satisfy-client-image">
-                                <figure class="image-anime">
-                                    <img src="{{ asset('images/author-1.jpg') }}" alt="">
-                                </figure>
-                            </div>
-                            <div class="satisfy-client-image add-more">
-                                <i><img src="{{ asset('images/icon-phone-primary.svg') }}" alt=""></i>
-                            </div>
-                        </div>
-                        <!-- Satisfy Client Images End -->    
-                        <p>Let's make something great work together. <a href="{{ route('contact') }}">Get Free Quote</a></p>                         
-                    </div>
-                    <!-- Section Footer Text End -->
-                </div>
+                </div>    
             </div>
         </div>
     </div>
     <!-- How It Work Section End -->
 
+    {{-- Our Team Section Hidden (uncomment when real team info is ready)
     <!-- Our Team Section Start -->
     <div class="our-team">
         <div class="container">
@@ -583,8 +633,8 @@
                 <div class="col-xl-6">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">Meet Our Farmers</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Discover the team that makes organic farming possible</h2>
+                        <h3 class="wow fadeInUp">Meet Our Team</h3>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Meet the People Behind Every Pack of Raghuvir Atta</h2>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -594,13 +644,13 @@
                     <div class="section-content-btn">
                         <!-- Section Title Content Start -->
                         <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                            <p>Their passion, knowledge, and hands-on care ensure that every crop is grown sustainably, harvested responsibly, and delivered fresh to your table.</p>
+                            <p>Our team's knowledge, hard work and care are in every packet. From wheat selection to quality check and delivery, everyone works with responsibility.</p>
                         </div>
                         <!-- Section Title Content End -->
 
                         <!-- Section Button Start -->
                         <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                            <a href="{{ route('team') }}" class="btn-default">View All Farmers</a>
+                            <a href="{{ route('team') }}" class="btn-default">View All Team</a>
                         </div>
                         <!-- Section Button End -->
                     </div>
@@ -609,6 +659,7 @@
             </div>
 
             <div class="row">
+                <!-- TODO: replace stock names and photos with the real team (name + role). -->
                 <div class="col-xl-3 col-md-6">
                     <!-- Team Member Item Start -->
                     <div class="team-item wow fadeInUp">
@@ -616,7 +667,7 @@
                         <div class="team-item-image">
                             <a href="{{ route('team-details') }}" class="image-anime" data-cursor-text="View">
                                 <figure>
-                                    <img src="{{ asset('images/team-1.jpg') }}" alt="">
+                                    <img src="{{ asset('images/team-1.jpg') }}" alt="Raghuvir production and quality team member">
                                 </figure>
                             </a>
                         </div>
@@ -649,7 +700,7 @@
                         <div class="team-item-image">
                             <a href="{{ route('team-details') }}" class="image-anime" data-cursor-text="View">
                                 <figure>
-                                    <img src="{{ asset('images/team-2.jpg') }}" alt="">
+                                    <img src="{{ asset('images/team-2.jpg') }}" alt="Raghuvir production and quality team member">
                                 </figure>
                             </a>
                         </div>
@@ -682,7 +733,7 @@
                         <div class="team-item-image">
                             <a href="{{ route('team-details') }}" class="image-anime" data-cursor-text="View">
                                 <figure>
-                                    <img src="{{ asset('images/team-3.jpg') }}" alt="">
+                                    <img src="{{ asset('images/team-3.jpg') }}" alt="Raghuvir production and quality team member">
                                 </figure>
                             </a>
                         </div>
@@ -715,7 +766,7 @@
                         <div class="team-item-image">
                             <a href="{{ route('team-details') }}" class="image-anime" data-cursor-text="View">
                                 <figure>
-                                    <img src="{{ asset('images/team-4.jpg') }}" alt="">
+                                    <img src="{{ asset('images/team-4.jpg') }}" alt="Raghuvir production and quality team member">
                                 </figure>
                             </a>
                         </div>
@@ -748,11 +799,11 @@
                         <div class="satisfy-client-images">
                             <div class="satisfy-client-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/author-1.jpg') }}" alt="">
+                                    <img src="{{ asset('images/author-1.jpg') }}" alt="Client testimonial avatar">
                                 </figure>
                             </div>
                             <div class="satisfy-client-image add-more">
-                                <i><img src="{{ asset('images/icon-phone-primary.svg') }}" alt=""></i>
+                                <i><img src="{{ asset('images/icon-phone-primary.svg') }}" alt="Phone icon"></i>
                             </div>
                         </div>
                         <!-- Satisfy Client Images End -->    
@@ -764,7 +815,9 @@
         </div>
     </div>
     <!-- Our Team Section End -->
+    --}}
 
+    {{-- Our Testimonials Section Hidden (uncomment when real testimonials are ready)
     <!-- Our Testimonials Section Start -->
     <div class="our-testimonials bg-section">
         <div class="container">
@@ -773,7 +826,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title section-title-center">
                         <h3 class="wow fadeInUp">Our Testimonials</h3>
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Genuine testimonials reflecting our quality, and purity</h2>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">Genuine Testimonials Reflecting Our Quality and Trust</h2>
                     </div>
                     <!-- Section Title End -->
                 </div>                
@@ -783,6 +836,7 @@
                 <div class="col-lg-12">
                     <!-- Testimonial Slider Start -->
                     <div class="testimonial-slider">
+                        <!-- TODO: replace with real customer reviews. -->
                         <div class="swiper">
                             <div class="swiper-wrapper" data-cursor-text="Drag">
                                 <!-- Testimonial Slide Start -->
@@ -791,7 +845,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-1.jpg') }}" alt="">
+                                                <img src="{{ asset('images/our-testimonials-image-1.jpg') }}" alt="Customer feedback photo">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -804,15 +858,15 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Testimonial quote icon">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
-                                                <h3>“The academy cares dancer's progress. The training is structured and supportive and incredibly professional.”</h3>
+                                                <h3>“[Customer review goes here]”</h3>
                                             </div>
                                             <div class="testimonial-author-content">
-                                                <h3>Esther Howard</h3>
-                                                <p>Lorem Ipsum</p>
+                                                <h3>[Customer Name]</h3>
+                                                <p>[City]</p>
                                             </div>
                                         </div>
                                     </div>
@@ -826,7 +880,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-2.jpg') }}" alt="">
+                                                <img src="{{ asset('images/our-testimonials-image-2.jpg') }}" alt="Customer feedback photo">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -839,15 +893,15 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Testimonial quote icon">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
-                                                <h3>“The academy cares dancer's progress. The training is structured and supportive and incredibly professional.”</h3>
+                                                <h3>“[Customer review goes here]”</h3>
                                             </div>
                                             <div class="testimonial-author-content">
-                                                <h3>Leslie Alexander</h3>
-                                                <p>Lorem Ipsum</p>
+                                                <h3>[Customer Name]</h3>
+                                                <p>[City]</p>
                                             </div>
                                         </div>
                                     </div>
@@ -861,7 +915,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-3.jpg') }}" alt="">
+                                                <img src="{{ asset('images/our-testimonials-image-3.jpg') }}" alt="Customer feedback photo">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -874,15 +928,15 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Testimonial quote icon">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
-                                                <h3>“The academy cares dancer's progress. The training is structured and supportive and incredibly professional.”</h3>
+                                                <h3>“[Customer review goes here]”</h3>
                                             </div>
                                             <div class="testimonial-author-content">
-                                                <h3>Kathryn Murphy</h3>
-                                                <p>Lorem Ipsum</p>
+                                                <h3>[Customer Name]</h3>
+                                                <p>[City]</p>
                                             </div>
                                         </div>
                                     </div>
@@ -896,7 +950,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-4.jpg') }}" alt="">
+                                                <img src="{{ asset('images/our-testimonials-image-4.jpg') }}" alt="Customer feedback photo">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -909,15 +963,15 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Testimonial quote icon">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
-                                                <h3>“The academy cares dancer's progress. The training is structured and supportive and incredibly professional.”</h3>
+                                                <h3>“[Customer review goes here]”</h3>
                                             </div>
                                             <div class="testimonial-author-content">
-                                                <h3>Kristin Watson</h3>
-                                                <p>Lorem Ipsum</p>
+                                                <h3>[Customer Name]</h3>
+                                                <p>[City]</p>
                                             </div>
                                         </div>
                                     </div>
@@ -934,10 +988,10 @@
                 <div class="col-lg-12">
                     <!-- Section Footer Text Start -->
                     <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.2s">
-                        <p><span>Free</span> Where Experiences Speak Louder - <a href="{{ route('contact') }}">Discover Why Customers Love Us!</a></p>
+                        <p><span>Trust</span> Where Experiences Speak Louder - <a href="{{ route('contact') }}">Discover Why Customers Love Us!</a></p>
 
+                        <!-- TODO: show a real rating only if it is true. -->
                         <ul>
-                            <li><span class="counter">4.9</span>/5</li>
                             <li>
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -945,7 +999,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </li>
-                            <li>Our 4200 Reviews</li>
+                            <li>Trusted by families across Gujarat</li>
                         </ul>
                     </div>
                     <!-- Section Footer Text End -->
@@ -954,6 +1008,7 @@
         </div>
     </div>
     <!-- Our Testimonials Section End -->
+    --}}
 
     <!-- Our Faqs Start -->
     <div class="our-faqs">
@@ -965,7 +1020,7 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">Frequently Asked Questions</h3>
-                            <h2 class="text-anime-style-3" data-cursor="-opaque">Simple, clear answers to help you understand our work better</h2>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Simple, Clear Answers to Help You Understand Our Work</h2>
                         </div>
                         <!-- Section Title End -->
 
@@ -975,12 +1030,12 @@
                             <div class="accordion-item wow fadeInUp">
                                 <h2 class="accordion-header" id="heading1">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        Q1. What makes your farm products organic?
+                                        Who is Raghuvir Foods and what do you make?
                                     </button>
                                 </h2>
                                 <div id="collapse1" class="accordion-collapse collapse show" role="region" aria-labelledby="heading1" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>We follow natural farming methods, avoid all chemical fertilizers and pesticides, and focus on soil health to ensure every product is clean and truly organic.</p>
+                                        <p>Raghuvir Foods is a hygienic chakki atta brand from Gandhinagar, Gujarat. We make Whole Wheat Atta, Bati Atta and Wheat Bran.</p>
                                     </div>
                                 </div>
                             </div>
@@ -990,12 +1045,12 @@
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
                                 <h2 class="accordion-header" id="heading2">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        Q2. Do you use any chemical additives in your produce?
+                                        Does your atta contain any chemicals or additives?
                                     </button>
                                 </h2>
                                 <div id="collapse2" class="accordion-collapse collapse" role="region" aria-labelledby="heading2" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>We follow natural farming methods, avoid all chemical fertilizers and pesticides, and focus on soil health to ensure every product is clean and truly organic.</p>
+                                        <p>Our atta is made from 100% pure wheat, with no artificial colour, bleaching or preservatives.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1005,12 +1060,12 @@
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
                                 <h2 class="accordion-header" id="heading3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        Q3. How do you maintain freshness during delivery?
+                                        How do you keep the atta fresh during delivery?
                                     </button>
                                 </h2>
                                 <div id="collapse3" class="accordion-collapse collapse" role="region" aria-labelledby="heading3" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>We follow natural farming methods, avoid all chemical fertilizers and pesticides, and focus on soil health to ensure every product is clean and truly organic.</p>
+                                        <p>The atta is packed in food-grade, moisture-lock bags and dispatched within 24-48 hours of order.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1020,12 +1075,12 @@
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
                                 <h2 class="accordion-header" id="heading4">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        Q4. Do you offer seasonal produce boxes?
+                                        Do you accept bulk orders?
                                     </button>
                                 </h2>
                                 <div id="collapse4" class="accordion-collapse collapse" role="region" aria-labelledby="heading4" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>We follow natural farming methods, avoid all chemical fertilizers and pesticides, and focus on soil health to ensure every product is clean and truly organic.</p>
+                                        <p>Yes. Bulk supply is available for homes, shops, hotels and restaurants. Call us for rates.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1035,12 +1090,12 @@
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
                                 <h2 class="accordion-header" id="heading5">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        Q5. How do you manage pests without chemicals?
+                                        How do you check the wheat quality?
                                     </button>
                                 </h2>
                                 <div id="collapse5" class="accordion-collapse collapse" role="region" aria-labelledby="heading5" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>We follow natural farming methods, avoid all chemical fertilizers and pesticides, and focus on soil health to ensure every product is clean and truly organic.</p>
+                                        <p>Wheat is cleaned before grinding, and the finished atta is checked for moisture and purity.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1057,46 +1112,10 @@
                         <!-- Faqs Image Start -->
                         <div class="faqs-image">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/faqs-image.jpg') }}" alt="">
+                                <img src="{{ asset('images/faqs-doorstep-delivery.jpg') }}" alt="Doorstep delivery of fresh Raghuvir Special Bati Atta to Indian family">
                             </figure>
                         </div>
                         <!-- Faqs Image End -->
-
-                        <!-- Faqs CTA Box Start -->
-                        <div class="faq-cta-box">
-                            <!-- Satisfy Client Images Start -->
-                            <div class="satisfy-client-images">
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('images/author-1.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('images/author-2.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('images/author-3.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('images/author-4.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="satisfy-client-image add-more">
-                                    <h3><span class="counter">4</span>K+</h3>
-                                </div>
-                            </div>
-                            <!-- Satisfy Client Images End -->
-
-                            <div class="faqs-cta-content">
-                                <h3>Satisfied Customers Across Regions</h3>
-                            </div>
-                        </div>
-                        <!-- Faqs CTA Box End -->
                     </div>
                     <!-- Faqs Image End -->
                 </div>
