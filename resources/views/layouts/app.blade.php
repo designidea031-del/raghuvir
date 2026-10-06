@@ -94,69 +94,196 @@
     <title>@yield('title', $seoTitle)</title>
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{ setting_asset('site_favicon', 'images/Raghuvir Favicon.png') }}">
-	<!-- Google Fonts Css-->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" rel="stylesheet">
-	<!-- Bootstrap Css -->
-	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
-	<!-- SlickNav Css -->
-	<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
-	<!-- Swiper Css -->
-	<link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
-	<!-- Font Awesome Icon Css-->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" media="screen">
-	<!-- Animated Css -->
-	<link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <!-- Magnific Popup Core Css File -->
-	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-	<!-- Mouse Cursor Css File -->
-	<link rel="stylesheet" href="{{ asset('css/mousecursor.css') }}">
-	<!-- Main Custom Css -->
-	<link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet" media="screen">
+
+	<!-- Resource Hints & Critical Asset Preload -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+	<link rel="preload" as="image" href="{{ asset('images/home_hero.webp') }}" type="image/webp" fetchpriority="high">
+
+	<!-- Critical Above-the-Fold & Preloader CSS -->
+	<style>
+		:root {
+			--primary-color: #2C2C2C;
+			--secondary-color: #F8F6EF;
+			--bg-color: #FFFFFF;
+			--text-color: #767676;
+			--accent-color: #E67E22;
+			--white-color: #FFFFFF;
+			--divider-color: #2C2C2C1A;
+			--dark-divider-color: #FFFFFF1A;
+			--default-font: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		}
+		*, *::before, *::after {
+			box-sizing: border-box;
+		}
+		html, body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			overflow-x: clip;
+			font-family: var(--default-font);
+			background-color: var(--secondary-color);
+			color: var(--text-color);
+			font-size: 16px;
+			line-height: 1.6;
+		}
+		.preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 10000;
+			background: var(--secondary-color);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			pointer-events: none;
+		}
+		.logo-container {
+			width: 170px;
+			height: 170px;
+			animation: breathe 4s ease-in-out infinite;
+		}
+		.logo-container svg {
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+		}
+		.logo-container .leaf {
+			transform: scale(0);
+			opacity: 0;
+			transform-origin: 127px 147px;
+		}
+		.logo-container .left-leaf {
+			animation: loopBloom 4s infinite;
+			animation-delay: 0s;
+		}
+		.logo-container .right-leaf {
+			animation: loopBloom 4s infinite;
+			animation-delay: 0.2s;
+		}
+		.logo-container .top-leaf {
+			animation: loopBloom 4s infinite;
+			animation-delay: 0.5s;
+		}
+		@keyframes loopBloom {
+			0% { transform: scale(0); opacity: 0; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+			10% { transform: scale(1); opacity: 1; animation-timing-function: linear; }
+			75% { transform: scale(1); opacity: 1; animation-timing-function: ease-in; }
+			85%, 100% { transform: scale(0); opacity: 0; }
+		}
+		@keyframes breathe {
+			0%, 100% { transform: scale(1); }
+			40% { transform: scale(1.025); }
+		}
+		.bg-section {
+			width: 100%;
+			max-width: 1880px;
+			background: var(--secondary-color);
+			border-radius: 12px;
+			margin: 0 auto;
+		}
+		.dark-section {
+			background-color: var(--primary-color);
+			background-image: url('{{ asset("images/dark-section-bg-shape.webp") }}');
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+		}
+		.hero {
+			position: relative;
+			background: url('{{ asset("images/home_hero.webp") }}') no-repeat;
+			background-position: right 30%;
+			background-size: cover;
+			margin-top: 20px;
+			overflow: hidden;
+		}
+	</style>
+
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" media="print" onload="this.media='all'">
+
+	<!-- Preloaded Non-blocking Stylesheets -->
+	<link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style">
+	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="print" onload="this.media='screen'">
+
+	<link rel="preload" href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" as="style">
+	<link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet" media="print" onload="this.media='screen'">
+
+	<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+	<link href="{{ asset('css/swiper-bundle.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='screen'">
+	<link href="{{ asset('css/animate.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+	<link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+	<link href="{{ asset('css/mousecursor.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+
+	<noscript>
+		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" rel="stylesheet">
+		<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/swiper-bundle.min.css') }}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+		<link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/mousecursor.css') }}" rel="stylesheet">
+	</noscript>
+
 	@stack('styles')
 
-	<!-- Google Analytics 4 (GA4) -->
+	<!-- Google Analytics 4 (GA4) - Deferred on load -->
 	@if(setting('ga4_measurement_id') && setting('ga4_enabled', true))
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id={{ setting('ga4_measurement_id') }}"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', '{{ setting('ga4_measurement_id') }}'{{ setting('ga4_anonymize_ip') ? ", { 'anonymize_ip': true }" : "" }});
+		window.addEventListener('load', function() {
+			var s = document.createElement('script');
+			s.src = 'https://www.googletagmanager.com/gtag/js?id={{ setting('ga4_measurement_id') }}';
+			s.async = true;
+			document.head.appendChild(s);
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', '{{ setting('ga4_measurement_id') }}'{{ setting('ga4_anonymize_ip') ? ", { 'anonymize_ip': true }" : "" }});
+		});
 		</script>
 	@endif
 
-	<!-- Google Tag Manager (GTM) -->
+	<!-- Google Tag Manager (GTM) - Deferred on load -->
 	@if(setting('gtm_container_id') && setting('gtm_enabled', true))
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','{{ setting('gtm_container_id') }}');</script>
-		<!-- End Google Tag Manager -->
+		<script>
+		window.addEventListener('load', function() {
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','{{ setting('gtm_container_id') }}');
+		});
+		</script>
 	@endif
 
-	<!-- Meta / Facebook Pixel Code -->
+	<!-- Meta / Facebook Pixel Code - Deferred on load -->
 	@if(setting('meta_pixel_id') && setting('meta_pixel_enabled', true))
 		<script>
-		!function(f,b,e,v,n,t,s)
-		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-		n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-		if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-		n.queue=[];t=b.createElement(e);t.async=!0;
-		t.src=v;s=b.getElementsByTagName(e)[0];
-		s.parentNode.insertBefore(t,s)}(window, document,'script',
-		'https://connect.facebook.net/en_US/fbevents.js');
-		fbq('init', '{{ setting('meta_pixel_id') }}');
-		fbq('track', 'PageView');
+		window.addEventListener('load', function() {
+			!function(f,b,e,v,n,t,s)
+			{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)}(window, document,'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+			fbq('init', '{{ setting('meta_pixel_id') }}');
+			fbq('track', 'PageView');
+		});
 		</script>
 		<noscript><img height="1" width="1" style="display:none"
 		src="https://www.facebook.com/tr?id={{ setting('meta_pixel_id') }}&ev=PageView&noscript=1"
 		/></noscript>
-		<!-- End Meta Pixel Code -->
 	@endif
 
 	@if(setting('custom_header_scripts'))
@@ -203,36 +330,36 @@
     <!-- Main Footer End -->
     
     <!-- Jquery Library File -->
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
     <!-- Bootstrap js file -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
     <!-- Validator js file -->
-    <script src="{{ asset('js/validator.min.js') }}"></script>
+    <script src="{{ asset('js/validator.min.js') }}" defer></script>
     <!-- SlickNav js file -->
-    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('js/jquery.slicknav.js') }}" defer></script>
     <!-- Swiper js file -->
-    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('js/swiper-bundle.min.js') }}" defer></script>
     <!-- Counter js file -->
-    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}" defer></script>
     <!-- Magnific js file -->
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}" defer></script>
     <!-- SmoothScroll -->
-    <script src="{{ asset('js/SmoothScroll.js') }}"></script>
+    <script src="{{ asset('js/SmoothScroll.js') }}" defer></script>
     <!-- Parallax js -->
-    <script src="{{ asset('js/parallaxie.js') }}"></script>
+    <script src="{{ asset('js/parallaxie.js') }}" defer></script>
     <!-- MagicCursor js file -->
-    <script src="{{ asset('js/gsap.min.js') }}"></script>
-    <script src="{{ asset('js/magiccursor.js') }}"></script>
+    <script src="{{ asset('js/gsap.min.js') }}" defer></script>
+    <script src="{{ asset('js/magiccursor.js') }}" defer></script>
     <!-- Text Effect js file -->
-    <script src="{{ asset('js/SplitText.min.js') }}"></script>
-    <script src="{{ asset('js/ScrollTrigger.min.js') }}"></script>
+    <script src="{{ asset('js/SplitText.min.js') }}" defer></script>
+    <script src="{{ asset('js/ScrollTrigger.min.js') }}" defer></script>
     <!-- YTPlayer js File -->
-    <script src="{{ asset('js/jquery.mb.YTPlayer.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mb.YTPlayer.min.js') }}" defer></script>
     <!-- Wow js file -->
-    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}" defer></script>
     <!-- Main Custom js file -->
-    <script src="{{ asset('js/function.js') }}"></script>
+    <script src="{{ asset('js/function.js') }}" defer></script>
     <!-- Scroll To Top Button -->
     <a href="#top" id="scroll-to-top" class="scroll-to-top" style="
         position: fixed;

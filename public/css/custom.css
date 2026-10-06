@@ -437,7 +437,7 @@ a:focus {
 
 .dark-section {
 	background-color: var(--primary-color);
-	background-image: url('../images/dark-section-bg-shape.png');
+	background-image: url('../images/dark-section-bg-shape.webp');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1257,7 +1257,7 @@ header.main-header .header-sticky.active {
 
 .hero {
 	position: relative;
-	background: url('../images/home_hero.png') no-repeat;
+	background: url('../images/home_hero.webp') no-repeat;
 	background-position: right 30%;
 	background-size: cover;
 	margin-top: 20px;

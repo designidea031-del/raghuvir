@@ -13,23 +13,35 @@
 		}, 2200);
 	});
 
-	/* Sticky Header */
-	if ($('.active-sticky-header').length) {
+	/* Sticky Header - Optimized for Zero Forced Reflow */
+	var $header = $("header.active-sticky-header");
+	if ($header.length) {
+		var $sticky = $header.find(".header-sticky");
+		var cachedHeaderHeight = $sticky.outerHeight() || 0;
+		var ticking = false;
+
+		function setHeaderHeight() {
+			cachedHeaderHeight = $sticky.outerHeight() || 0;
+			$header.css("height", cachedHeaderHeight);
+		}
+
+		setHeaderHeight();
+
 		$window.on('resize', function () {
 			setHeaderHeight();
 		});
 
-		function setHeaderHeight() {
-			$("header.active-sticky-header").css("height", $('header.active-sticky-header .header-sticky').outerHeight());
-		}
-
-		$window.on("scroll", function () {
-			var fromTop = $(window).scrollTop();
-			setHeaderHeight();
-			var headerHeight = $('header.active-sticky-header .header-sticky').outerHeight()
-			$("header.active-sticky-header .header-sticky").toggleClass("hide", (fromTop > headerHeight + 100));
-			$("header.active-sticky-header .header-sticky").toggleClass("active", (fromTop > 600));
-		});
+		window.addEventListener("scroll", function () {
+			if (!ticking) {
+				window.requestAnimationFrame(function () {
+					var fromTop = window.scrollY || document.documentElement.scrollTop || 0;
+					$sticky.toggleClass("hide", (fromTop > cachedHeaderHeight + 100));
+					$sticky.toggleClass("active", (fromTop > 600));
+					ticking = false;
+				});
+				ticking = true;
+			}
+		}, { passive: true });
 	}
 
 	/* Slick Menu JS */
@@ -343,13 +355,19 @@
 		}
 	}
 
-	if (document.fonts && document.fonts.ready) {
-		document.fonts.ready.then(() => {
-			initHeadingAnimation();
-		});
-	} else {
-		window.addEventListener("load", initHeadingAnimation);
+	var headingAnimationTriggered = false;
+	function triggerHeadingAnimation() {
+		if (headingAnimationTriggered) return;
+		headingAnimationTriggered = true;
+		initHeadingAnimation();
 	}
+
+	if (document.fonts && document.fonts.ready) {
+		document.fonts.ready.then(triggerHeadingAnimation);
+	} else {
+		window.addEventListener("load", triggerHeadingAnimation);
+	}
+	setTimeout(triggerHeadingAnimation, 1200);
 
 	/* Parallaxie js */
 	var $parallaxie = $('.parallaxie');

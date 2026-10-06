@@ -241,7 +241,7 @@
                         <!-- About Us Image 2 Start -->
                         <div class="about-us-image-2">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/home_about.png') }}" alt="Raghuvir hygienic chakki atta packaging and traditional wheat farming">
+                                <img src="{{ asset('images/home_about.webp') }}" alt="Raghuvir hygienic chakki atta packaging and traditional wheat farming" loading="lazy" decoding="async">
                             </figure>
                         </div>
                         <!-- About Us Image 2 End -->
@@ -479,7 +479,7 @@
                             <!-- Why Choose Image 1 Start -->
                             <div class="why-choose-image">
                                 <figure>
-                                    <img src="{{ asset('images/home_02.png') }}" alt="Raghuvir natural wheat processing and chakki atta quality">
+                                    <img src="{{ asset('images/home_02.webp') }}" alt="Raghuvir natural wheat processing and chakki atta quality" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <!-- Why Choose Image 1 End -->
@@ -502,7 +502,7 @@
                             <!-- Why Choose Image 2 Start -->
                             <div class="why-choose-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/why-choose-image-2.jpg') }}?v={{ filemtime(public_path('images/why-choose-image-2.jpg')) }}" alt="Pure Golden Wheat Grains - Transparent & Traceable Produce">
+                                    <img src="{{ asset('images/why-choose-image-2.webp') }}" alt="Pure Golden Wheat Grains - Transparent & Traceable Produce" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <!-- Why Choose Image 2 End -->
@@ -615,7 +615,7 @@
                             <div class="product-item-img">
                                 <a href="{{ route('product-details', ['product' => $prod->slug]) }}" data-cursor-text="View">
                                     <figure>
-                                        <img src="{{ $prod->image_url }}" alt="{{ $prod->image_alt ?: $prod->name }}">
+                                        <img src="{{ $prod->image_url }}" alt="{{ $prod->image_alt ?: $prod->name }}" loading="lazy" decoding="async">
                                     </figure>
                                 </a>
                             </div>
@@ -674,7 +674,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-wheat-selection.jpg') }}" alt="01 Wheat Selection - Selected Pure Wheat Grains">
+                                    <img src="{{ asset('images/how-it-work-wheat-selection.webp') }}" alt="01 Wheat Selection - Selected Pure Wheat Grains" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -698,7 +698,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-cleaning.jpg') }}" alt="02 Cleaning - Multi-step Removal of Dust and Impurities">
+                                    <img src="{{ asset('images/how-it-work-cleaning.webp') }}" alt="02 Cleaning - Multi-step Removal of Dust and Impurities" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -722,7 +722,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-chakki-grinding.jpg') }}" alt="03 Chakki Grinding - Slow Traditional Stone Grinding">
+                                    <img src="{{ asset('images/how-it-work-chakki-grinding.webp') }}" alt="03 Chakki Grinding - Slow Traditional Stone Grinding" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -746,7 +746,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-quality-check.jpg') }}" alt="04 Quality Check - Moisture and Purity Tested">
+                                    <img src="{{ asset('images/how-it-work-quality-check.webp') }}" alt="04 Quality Check - Moisture and Purity Tested" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -770,7 +770,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-packaging.jpg') }}" alt="05 Packaging - Food-grade Moisture-lock Bags">
+                                    <img src="{{ asset('images/how-it-work-packaging.webp') }}" alt="05 Packaging - Food-grade Moisture-lock Bags" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -901,9 +901,11 @@
                         <div class="guj-showcase-box wow fadeIn" data-wow-delay="0.2s">
                             <div class="guj-showcase-frame">
                                 <img
-                                    src="{{ asset('images/gujarat_delivery_showcase_hd.jpg') }}"
+                                    src="{{ asset('images/gujarat_delivery_showcase_hd.webp') }}"
                                     alt="Fresh Chakki Atta Delivered to Your Doorstep in Gujarat"
                                     class="guj-showcase-img"
+                                    loading="lazy"
+                                    decoding="async"
                                 >
                                 <!-- Floating Trust Badge -->
                                 <div class="guj-showcase-badge">
@@ -1045,7 +1047,7 @@
                         <!-- Faqs Image Start -->
                         <div class="faqs-image">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/home_04.png') }}" alt="Customer satisfaction and fresh chakki atta answers">
+                                <img src="{{ asset('images/home_04.webp') }}" alt="Customer satisfaction and fresh chakki atta answers" loading="lazy" decoding="async">
                             </figure>
                         </div>
                         <!-- Faqs Image End -->
@@ -1261,7 +1263,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-1.jpg') }}" alt="Chakki Atta vs Mill Atta: Which Is Better for Your Family?">
+                                            <img src="{{ asset('images/post-1.webp') }}" alt="Chakki Atta vs Mill Atta: Which Is Better for Your Family?" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>
@@ -1286,7 +1288,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-2.jpg') }}" alt="How to Knead Atta for Perfectly Soft Rotis">
+                                            <img src="{{ asset('images/post-2.webp') }}" alt="How to Knead Atta for Perfectly Soft Rotis" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>
@@ -1311,7 +1313,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-3.jpg') }}" alt="How to Choose the Right Bati Atta for Dal Bati">
+                                            <img src="{{ asset('images/post-3.webp') }}" alt="How to Choose the Right Bati Atta for Dal Bati" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>
