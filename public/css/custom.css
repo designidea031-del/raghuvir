@@ -1572,23 +1572,29 @@ header.main-header .header-sticky.active {
 .about-us-image-2 {
 	position: relative;
 	width: 15%;
+	min-width: 0;
 	transform: rotate(12deg);
 	z-index: 1;
 }
 
 .about-us-image-2 figure {
 	display: block;
+	width: 290px;
+	max-width: 290px;
 	border: 6px solid var(--white-color);
 	border-radius: 20px;
-	margin-left: -280px;
+	margin-left: -270px;
 	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .about-us-image-2 figure img {
 	width: 100%;
+	height: auto;
 	aspect-ratio: 1 / 1.104;
 	object-fit: cover;
 	border-radius: 12px;
+	display: block;
 }
 
 .about-us-content {
@@ -2625,15 +2631,20 @@ header.main-header .header-sticky.active {
 	display: inline-block;
 	width: 100%;
 	max-width: 190px;
+	aspect-ratio: 1 / 1;
 	border-radius: 50%;
 	overflow: hidden;
 }
 
 .how-work-item-image figure img {
 	width: 100%;
+	height: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
 	border-radius: 50%;
 	transition: all 0.6s ease-in-out;
 	overflow: hidden;
+	display: block;
 }
 
 .how-work-item:hover .how-work-item-image figure img {
@@ -6888,8 +6899,11 @@ header.main-header .header-sticky.active {
 	}
 
 	.about-us-image-2 figure {
+		width: 100%;
+		max-width: 100%;
 		border: none;
 		margin-left: 0;
+		box-shadow: none;
 	}
 
 	.about-us-item {
@@ -14069,7 +14083,21 @@ header.main-header .header-sticky.active {
 		width: 100% !important;
 	}
 	.how-work-step-box.how-work-step-5 .how-work-item-image figure {
+		width: 155px !important;
+		height: 155px !important;
 		max-width: 155px !important;
+		aspect-ratio: 1 / 1 !important;
+		border-radius: 50% !important;
+		overflow: hidden !important;
+		margin: 0 auto !important;
+	}
+	.how-work-step-box.how-work-step-5 .how-work-item-image figure img {
+		width: 100% !important;
+		height: 100% !important;
+		aspect-ratio: 1 / 1 !important;
+		object-fit: cover !important;
+		border-radius: 50% !important;
+		display: block !important;
 	}
 }
 
@@ -14085,7 +14113,21 @@ header.main-header .header-sticky.active {
 		width: 100% !important;
 	}
 	.how-work-step-box.how-work-step-5 .how-work-item-image figure {
+		width: 150px !important;
+		height: 150px !important;
 		max-width: 150px !important;
+		aspect-ratio: 1 / 1 !important;
+		border-radius: 50% !important;
+		overflow: hidden !important;
+		margin: 0 auto !important;
+	}
+	.how-work-step-box.how-work-step-5 .how-work-item-image figure img {
+		width: 100% !important;
+		height: 100% !important;
+		aspect-ratio: 1 / 1 !important;
+		object-fit: cover !important;
+		border-radius: 50% !important;
+		display: block !important;
 	}
 }
 
@@ -14097,7 +14139,21 @@ header.main-header .header-sticky.active {
 		display: none !important;
 	}
 	.how-work-step-box.how-work-step-5 .how-work-item-image figure {
+		width: 160px !important;
+		height: 160px !important;
 		max-width: 160px !important;
+		aspect-ratio: 1 / 1 !important;
+		border-radius: 50% !important;
+		overflow: hidden !important;
+		margin: 0 auto !important;
+	}
+	.how-work-step-box.how-work-step-5 .how-work-item-image figure img {
+		width: 100% !important;
+		height: 100% !important;
+		aspect-ratio: 1 / 1 !important;
+		object-fit: cover !important;
+		border-radius: 50% !important;
+		display: block !important;
 	}
 }
 

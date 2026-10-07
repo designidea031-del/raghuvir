@@ -4,7 +4,7 @@
             <div class="container">
                 <!-- Logo Start -->
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ setting_asset('header_logo', 'images/Raghuvir Logo White.png') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" class="header-logo">
+                    <img src="{{ setting_asset('header_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" class="header-logo" width="160" height="48">
                 </a>
                 <!-- Logo End -->
 
@@ -57,7 +57,7 @@
                                                     @endphp
                                                     <a href="{{ route('product-details', ['product' => $mProd->slug]) }}" class="mega-product-item {{ $isBati ? 'mega-item-bati' : '' }}">
                                                         <div class="mega-thumb-wrap {{ $isBati ? 'mega-thumb-bati' : '' }}">
-                                                            <img src="{{ $mProd->image_url }}" alt="Raghuvir {{ $mProd->name }}" class="{{ $isBati ? 'img-scale-bati' : '' }}">
+                                                            <img src="{{ $mProd->image_url }}" alt="Raghuvir {{ $mProd->name }}" class="{{ $isBati ? 'img-scale-bati' : '' }}" width="120" height="120" loading="lazy" decoding="async">
                                                         </div>
                                                         <div class="mega-item-info">
                                                             <h5>{{ $mProd->name }}</h5>
@@ -67,7 +67,7 @@
                                                     <!-- Default Fallback Cards -->
                                                     <a href="{{ route('product-details', ['product' => 'whole-wheat-atta']) }}" class="mega-product-item">
                                                         <div class="mega-thumb-wrap">
-                                                            <img src="{{ asset('images/product_atta_transparent.png') }}" alt="Raghuvir Whole Wheat Atta">
+                                                            <img src="{{ asset('images/product_atta_transparent.webp') }}" alt="Raghuvir Whole Wheat Atta" width="120" height="120" loading="lazy" decoding="async">
                                                         </div>
                                                         <div class="mega-item-info">
                                                             <h5>Whole Wheat Atta</h5>
@@ -75,7 +75,7 @@
                                                     </a>
                                                     <a href="{{ route('product-details', ['product' => 'bati']) }}" class="mega-product-item mega-item-bati">
                                                         <div class="mega-thumb-wrap mega-thumb-bati">
-                                                            <img src="{{ asset('images/product_bati_transparent.png') }}" alt="Raghuvir Bati Atta" class="img-scale-bati">
+                                                            <img src="{{ asset('images/product_bati_transparent.webp') }}" alt="Raghuvir Bati Atta" class="img-scale-bati" width="120" height="120" loading="lazy" decoding="async">
                                                         </div>
                                                         <div class="mega-item-info">
                                                             <h5>Bati Atta</h5>
@@ -83,7 +83,7 @@
                                                     </a>
                                                     <a href="{{ route('product-details', ['product' => 'wheat']) }}" class="mega-product-item">
                                                         <div class="mega-thumb-wrap">
-                                                            <img src="{{ asset('images/product_wheat_bran_transparent.png') }}" alt="Raghuvir Wheat Bran">
+                                                            <img src="{{ asset('images/product_wheat_bran_transparent.webp') }}" alt="Raghuvir Wheat Bran" width="120" height="120" loading="lazy" decoding="async">
                                                         </div>
                                                         <div class="mega-item-info">
                                                             <h5>Wheat Bran</h5>

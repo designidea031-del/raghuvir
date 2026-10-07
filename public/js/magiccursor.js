@@ -123,5 +123,7 @@ class Cursor {
         this.visibleInt = setTimeout(() => this.visible = false, this.options.visibleTimeout);
     }
 }
-// Init cursor
-const cursor = new Cursor();
+// Init cursor only on desktop devices with a precision pointer
+if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cursor = new Cursor();
+}

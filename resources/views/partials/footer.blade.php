@@ -9,7 +9,7 @@
                         <!-- Footer Header Content Start -->
                         <div class="footer-contact-info">
                             <div class="footer-logo">
-                                <img src="{{ setting_asset('footer_logo', 'images/Raghuvir Logo White.png') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" style="max-height: 80px; width: auto;">
+                                <img src="{{ setting_asset('footer_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" style="max-height: 80px; width: auto;" width="160" height="48" loading="lazy" decoding="async">
                             </div>
 
                             <!-- Section Title Start -->
@@ -117,7 +117,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" name="mail" class="form-control" id="mail" placeholder="Email Address*" required>
-                                    <button type="submit" class="newsletter-btn"><i class="fa-regular fa-paper-plane"></i></button>
+                                    <button type="submit" class="newsletter-btn" aria-label="Subscribe to newsletter"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i></button>
                                 </div>
                             </form>
                             <p>Subscribe for new products and seasonal offers.</p>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 @php
     // Check if on a dynamic Product Details page or Blog Single page
     $currentProduct = $productModel ?? ($product ?? null);
@@ -143,6 +143,27 @@
 			align-items: center;
 			justify-content: center;
 			pointer-events: none;
+			transition: opacity 0.25s ease, visibility 0.25s ease;
+		}
+		.preloader.preloader-hidden {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+		i[class*="fa-"], .fa-solid, .fa-regular, .fa-brands {
+			display: inline-block;
+			width: 1em;
+			min-height: 1em;
+			text-align: center;
+			line-height: 1;
+		}
+		.hero-title-entrance {
+			animation: heroTitleFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+			will-change: opacity, transform;
+		}
+		@keyframes heroTitleFadeIn {
+			0% { opacity: 0; transform: translateY(16px); }
+			100% { opacity: 1; transform: translateY(0); }
 		}
 		.logo-container {
 			width: 170px;
@@ -206,14 +227,11 @@
 	</style>
 
 	<!-- Google Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" media="print" onload="this.media='all'">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
 
-	<!-- Preloaded Non-blocking Stylesheets -->
-	<link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style">
-	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="print" onload="this.media='screen'">
-
-	<link rel="preload" href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" as="style">
-	<link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet" media="print" onload="this.media='screen'">
+	<!-- Core Layout Stylesheets (Synchronous to eliminate Cumulative Layout Shift) -->
+	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet">
 
 	<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
 	<link href="{{ asset('css/swiper-bundle.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
@@ -319,7 +337,9 @@
     @include('partials.header')
 	<!-- Header End -->
 
-    @yield('content')
+    <main id="main-content">
+        @yield('content')
+    </main>
 
     <!-- Main Footer Start -->
     @hasSection('footer')
@@ -344,8 +364,6 @@
     <script src="{{ asset('js/jquery.counterup.min.js') }}" defer></script>
     <!-- Magnific js file -->
     <script src="{{ asset('js/jquery.magnific-popup.min.js') }}" defer></script>
-    <!-- SmoothScroll -->
-    <script src="{{ asset('js/SmoothScroll.js') }}" defer></script>
     <!-- Parallax js -->
     <script src="{{ asset('js/parallaxie.js') }}" defer></script>
     <!-- MagicCursor js file -->
@@ -354,14 +372,12 @@
     <!-- Text Effect js file -->
     <script src="{{ asset('js/SplitText.min.js') }}" defer></script>
     <script src="{{ asset('js/ScrollTrigger.min.js') }}" defer></script>
-    <!-- YTPlayer js File -->
-    <script src="{{ asset('js/jquery.mb.YTPlayer.min.js') }}" defer></script>
     <!-- Wow js file -->
     <script src="{{ asset('js/wow.min.js') }}" defer></script>
     <!-- Main Custom js file -->
     <script src="{{ asset('js/function.js') }}" defer></script>
     <!-- Scroll To Top Button -->
-    <a href="#top" id="scroll-to-top" class="scroll-to-top" style="
+    <a href="#top" id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" style="
         position: fixed;
         bottom: 98px;
         right: 30px;
@@ -407,8 +423,6 @@
             });
         });
     </script>
-
-</body>
 
 {{-- ════════════════════════════════════════════════════════════════
      Product Inquiry Popup Modal — globally available on every page
@@ -853,6 +867,25 @@
         });
     };
 }());
+</script>
+
+<script>
+	// Safe fast fallback dismiss for preloader so it never delays LCP
+	(function(){
+		function dismissPre(){
+			var p = document.querySelector('.preloader');
+			if(p && !p.classList.contains('preloader-hidden')){
+				p.classList.add('preloader-hidden');
+				setTimeout(function(){ if(p && p.parentNode) p.parentNode.removeChild(p); }, 300);
+			}
+		}
+		if(document.readyState === 'interactive' || document.readyState === 'complete'){ dismissPre(); }
+		else {
+			document.addEventListener('DOMContentLoaded', dismissPre);
+			window.addEventListener('load', dismissPre);
+			setTimeout(dismissPre, 450);
+		}
+	})();
 </script>
 
 	@if(setting('custom_footer_scripts'))

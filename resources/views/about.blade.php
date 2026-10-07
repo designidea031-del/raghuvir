@@ -505,7 +505,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-wheat-selection.jpg') }}" alt="Wheat Selection for Raghuvir chakki atta">
+                                    <img src="{{ asset('images/how-it-work-wheat-selection.webp') }}" alt="Wheat Selection for Raghuvir chakki atta" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -529,7 +529,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-cleaning.jpg') }}" alt="Cleaning and dust impurity removal">
+                                    <img src="{{ asset('images/how-it-work-cleaning.webp') }}" alt="Cleaning and dust impurity removal" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -553,7 +553,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-chakki-grinding.jpg') }}" alt="Slow traditional stone chakki grinding">
+                                    <img src="{{ asset('images/how-it-work-chakki-grinding.webp') }}" alt="Slow traditional stone chakki grinding" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -577,7 +577,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-quality-check.jpg') }}" alt="Moisture and purity quality check">
+                                    <img src="{{ asset('images/how-it-work-quality-check.webp') }}" alt="Moisture and purity quality check" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -601,7 +601,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-packaging.jpg') }}" alt="Food-grade airtight moisture-lock packaging">
+                                    <img src="{{ asset('images/how-it-work-packaging.webp') }}" alt="Food-grade airtight moisture-lock packaging" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">

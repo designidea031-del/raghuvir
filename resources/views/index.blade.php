@@ -144,7 +144,7 @@
                             <!-- Section Title Start -->
                             <div class="section-title">
                                 <h3 class="wow fadeInUp">Healthy Farms, Healthy Lives</h3>
-                                <h1 class="text-anime-style-3" data-cursor="-opaque">Raghuvir Hygienic Chakki Atta: Pure Whole Wheat Atta, Fresh from the Farm</h1>
+                                <h1 class="hero-title-entrance" data-cursor="-opaque">Raghuvir Hygienic Chakki Atta: Pure Whole Wheat Atta, Fresh from the Farm</h1>
                                 <p class="wow fadeInUp" data-wow-delay="0.2s">Raghuvir Foods grinds selected golden wheat in a traditional chakki to make fresh atta. No mixing, no shortcuts.</p>
                                 <p class="wow fadeInUp" data-wow-delay="0.3s" style="margin-top: 10px;">Pure, soft, fibre-rich atta in hygienic packing, delivered to your home.</p>
                             </div>
@@ -241,7 +241,7 @@
                         <!-- About Us Image 2 Start -->
                         <div class="about-us-image-2">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/home_about.webp') }}" alt="Raghuvir hygienic chakki atta packaging and traditional wheat farming" loading="lazy" decoding="async">
+                                <img src="{{ asset('images/home_about.webp') }}" alt="Raghuvir hygienic chakki atta packaging and traditional wheat farming" width="290" height="320" loading="lazy" decoding="async">
                             </figure>
                         </div>
                         <!-- About Us Image 2 End -->
@@ -267,7 +267,7 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-1.svg') }}" alt="Sustainable Farming Practices icon">
+                                    <img src="{{ asset('images/icon-about-item-1.svg') }}" alt="Sustainable Farming Practices icon" width="24" height="24" loading="lazy" decoding="async">
                                 </div>
                                 <div class="about-us-item-content">
                                     <h3>Sustainable Farming Practices</h3>
@@ -278,7 +278,7 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-2.svg') }}" alt="Pure Chemical-Free Produce icon">
+                                    <img src="{{ asset('images/icon-about-item-2.svg') }}" alt="Pure Chemical-Free Produce icon" width="24" height="24" loading="lazy" decoding="async">
                                 </div>
                                 <div class="about-us-item-content">
                                     <h3>Pure, Chemical-Free Produce</h3>
@@ -289,7 +289,7 @@
                             <!-- About Us Item Start -->
                             <div class="about-us-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-about-item-3.svg') }}" alt="Passion for Honest Agriculture icon">
+                                    <img src="{{ asset('images/icon-about-item-3.svg') }}" alt="Passion for Honest Agriculture icon" width="24" height="24" loading="lazy" decoding="async">
                                 </div>
                                 <div class="about-us-item-content">
                                     <h3>Passion for Honest Agriculture</h3>
@@ -360,7 +360,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Pure Golden Wheat">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Pure Golden Wheat" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Pure Golden Wheat</h3>
@@ -372,7 +372,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Chemical-Free Handling">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Chemical-Free Handling" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Chemical-Free Handling</h3>
@@ -397,7 +397,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Natural Soil Enrichment">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Natural Soil Enrichment" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Natural Soil Enrichment</h3>
@@ -409,7 +409,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Fresh Produce Standards">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Fresh Produce Standards" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Fresh Produce Standards</h3>
@@ -434,7 +434,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Fresh Milling on Order">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-1.svg') }}" alt="Fresh Milling on Order" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Fresh Milling on Order</h3>
@@ -446,7 +446,7 @@
                                         <!-- Why Choose Info Item Start -->
                                         <div class="why-choose-info-item">
                                             <div class="icon-box">
-                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Reliable Doorstep Delivery">
+                                                <img src="{{ asset('images/icon-why-choose-info-item-2.svg') }}" alt="Reliable Doorstep Delivery" width="24" height="24" loading="lazy" decoding="async">
                                             </div>
                                             <div class="why-choose-info-item-content">
                                                 <h3>Reliable Doorstep Delivery</h3>
@@ -479,7 +479,7 @@
                             <!-- Why Choose Image 1 Start -->
                             <div class="why-choose-image">
                                 <figure>
-                                    <img src="{{ asset('images/home_02.webp') }}" alt="Raghuvir natural wheat processing and chakki atta quality" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/home_02.webp') }}" alt="Raghuvir natural wheat processing and chakki atta quality" width="526" height="450" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <!-- Why Choose Image 1 End -->
@@ -491,7 +491,7 @@
                             <!-- Why Choose Info Box Start -->
                             <div class="why-choose-info-box">
                                 <div class="icon-box">
-                                    <img src="{{ asset('images/icon-why-choose-us-info-box.svg') }}?v={{ filemtime(public_path('images/icon-why-choose-us-info-box.svg')) }}" alt="Transparent & Traceable Produce">
+                                    <img src="{{ asset('images/icon-why-choose-us-info-box.svg') }}?v={{ filemtime(public_path('images/icon-why-choose-us-info-box.svg')) }}" alt="Transparent & Traceable Produce" width="48" height="48" loading="lazy" decoding="async">
                                 </div>
                                 <div class="why-choose-info-content">
                                     <h3>Transparent & Traceable Produce</h3>
@@ -502,7 +502,7 @@
                             <!-- Why Choose Image 2 Start -->
                             <div class="why-choose-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/why-choose-image-2.webp') }}" alt="Pure Golden Wheat Grains - Transparent & Traceable Produce" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/why-choose-image-2.webp') }}" alt="Pure Golden Wheat Grains - Transparent & Traceable Produce" width="400" height="300" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <!-- Why Choose Image 2 End -->
@@ -510,7 +510,7 @@
                             <!-- Contact Us Circle Start -->
                             <div class="contact-us-circle">
                                 <a href="{{ route('contact') }}">
-                                    <img src="{{ asset('images/contact-us-circle.svg') }}" alt="Contact Raghuvir Atta">
+                                    <img src="{{ asset('images/contact-us-circle.svg') }}" alt="Contact Raghuvir Atta" width="112" height="112" loading="lazy" decoding="async">
                                 </a>
                             </div>
                             <!-- Contact Us Circle End -->
@@ -552,7 +552,7 @@
                         <!-- Intro Video Item Start -->
                         <div class="intro-video-item">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-intro-video-item-1.svg') }}" alt="Our Sustainable Farming in Action">
+                                <img src="{{ asset('images/icon-intro-video-item-1.svg') }}" alt="Our Sustainable Farming in Action" width="24" height="24" loading="lazy" decoding="async">
                             </div>
                             <div class="intro-video-item-content">
                                 <h3>Our Sustainable Farming in Action</h3>
@@ -564,7 +564,7 @@
                         <!-- Intro Counter Item Start -->
                         <div class="intro-video-item">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-intro-video-item-2.svg') }}" alt="Experience the Passion of Our Work">
+                                <img src="{{ asset('images/icon-intro-video-item-2.svg') }}" alt="Experience the Passion of Our Work" width="24" height="24" loading="lazy" decoding="async">
                             </div>
                             <div class="intro-video-item-content">
                                 <h3>Experience the Passion of Our Work</h3>
@@ -576,7 +576,7 @@
                         <!-- Intro Counter Item Start -->
                         <div class="intro-video-item">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-intro-video-item-3.svg') }}" alt="What Makes Our Produce Truly Pure">
+                                <img src="{{ asset('images/icon-intro-video-item-3.svg') }}" alt="What Makes Our Produce Truly Pure" width="24" height="24" loading="lazy" decoding="async">
                             </div>
                             <div class="intro-video-item-content">
                                 <h3>What Makes Our Produce Truly Pure</h3>
@@ -615,7 +615,7 @@
                             <div class="product-item-img">
                                 <a href="{{ route('product-details', ['product' => $prod->slug]) }}" data-cursor-text="View">
                                     <figure>
-                                        <img src="{{ $prod->image_url }}" alt="{{ $prod->image_alt ?: $prod->name }}" loading="lazy" decoding="async">
+                                        <img src="{{ $prod->image_url }}" alt="{{ $prod->image_alt ?: $prod->name }}" width="360" height="270" loading="lazy" decoding="async">
                                     </figure>
                                 </a>
                             </div>
@@ -674,7 +674,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-wheat-selection.webp') }}" alt="01 Wheat Selection - Selected Pure Wheat Grains" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/how-it-work-wheat-selection.webp') }}" alt="01 Wheat Selection - Selected Pure Wheat Grains" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -698,7 +698,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-cleaning.webp') }}" alt="02 Cleaning - Multi-step Removal of Dust and Impurities" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/how-it-work-cleaning.webp') }}" alt="02 Cleaning - Multi-step Removal of Dust and Impurities" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -722,7 +722,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-chakki-grinding.webp') }}" alt="03 Chakki Grinding - Slow Traditional Stone Grinding" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/how-it-work-chakki-grinding.webp') }}" alt="03 Chakki Grinding - Slow Traditional Stone Grinding" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -746,7 +746,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-quality-check.webp') }}" alt="04 Quality Check - Moisture and Purity Tested" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/how-it-work-quality-check.webp') }}" alt="04 Quality Check - Moisture and Purity Tested" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -770,7 +770,7 @@
                             </div>
                             <div class="how-work-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/how-it-work-packaging.webp') }}" alt="05 Packaging - Food-grade Moisture-lock Bags" loading="lazy" decoding="async">
+                                    <img src="{{ asset('images/how-it-work-packaging.webp') }}" alt="05 Packaging - Food-grade Moisture-lock Bags" width="155" height="155" loading="lazy" decoding="async">
                                 </figure>
                             </div>
                             <div class="how-work-item-body">
@@ -904,6 +904,8 @@
                                     src="{{ asset('images/gujarat_delivery_showcase_hd.webp') }}"
                                     alt="Fresh Chakki Atta Delivered to Your Doorstep in Gujarat"
                                     class="guj-showcase-img"
+                                    width="600"
+                                    height="450"
                                     loading="lazy"
                                     decoding="async"
                                 >
@@ -1047,7 +1049,7 @@
                         <!-- Faqs Image Start -->
                         <div class="faqs-image">
                             <figure class="image-anime">
-                                <img src="{{ asset('images/home_04.webp') }}" alt="Customer satisfaction and fresh chakki atta answers" loading="lazy" decoding="async">
+                                <img src="{{ asset('images/home_04.webp') }}" alt="Customer satisfaction and fresh chakki atta answers" width="450" height="549" loading="lazy" decoding="async">
                             </figure>
                         </div>
                         <!-- Faqs Image End -->
@@ -1087,7 +1089,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-1.jpg') }}" alt="Customer review for Raghuvir hygienic chakki atta">
+                                                <img src="{{ asset('images/our-testimonials-image-1.webp') }}" alt="Customer review for Raghuvir hygienic chakki atta" width="250" height="293" loading="lazy" decoding="async">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -1100,7 +1102,7 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Quote" width="40" height="32" loading="lazy" decoding="async">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
@@ -1123,7 +1125,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-2.jpg') }}" alt="Customer review for soft rotis and chakki fresh flour">
+                                                <img src="{{ asset('images/our-testimonials-image-2.webp') }}" alt="Customer review for soft rotis and chakki fresh flour" width="250" height="293" loading="lazy" decoding="async">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -1136,7 +1138,7 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Quote" width="40" height="32" loading="lazy" decoding="async">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
@@ -1159,7 +1161,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-item-image">
                                             <figure class="image-anime">
-                                                <img src="{{ asset('images/our-testimonials-image-3.jpg') }}" alt="Customer review for pure whole wheat atta quality">
+                                                <img src="{{ asset('images/our-testimonials-image-3.webp') }}" alt="Customer review for pure whole wheat atta quality" width="250" height="293" loading="lazy" decoding="async">
                                             </figure>
                                         </div>
                                         <div class="testimonial-item-body">
@@ -1172,7 +1174,7 @@
                                                     <i class="fa fa-solid fa-star"></i>
                                                 </div>
                                                 <div class="testimonial-item-quote">
-                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="">
+                                                    <img src="{{ asset('images/testimonial-item-quote.svg') }}" alt="Quote" width="40" height="32" loading="lazy" decoding="async">
                                                 </div>
                                             </div>                                         
                                             <div class="testimonial-item-content">
@@ -1263,7 +1265,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-1.webp') }}" alt="Chakki Atta vs Mill Atta: Which Is Better for Your Family?" loading="lazy" decoding="async">
+                                            <img src="{{ asset('images/post-1.webp') }}" alt="Chakki Atta vs Mill Atta: Which Is Better for Your Family?" width="380" height="240" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>
@@ -1288,7 +1290,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-2.webp') }}" alt="How to Knead Atta for Perfectly Soft Rotis" loading="lazy" decoding="async">
+                                            <img src="{{ asset('images/post-2.webp') }}" alt="How to Knead Atta for Perfectly Soft Rotis" width="380" height="240" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>
@@ -1313,7 +1315,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog') }}" data-cursor-text="View">
                                         <figure class="image-anime">
-                                            <img src="{{ asset('images/post-3.webp') }}" alt="How to Choose the Right Bati Atta for Dal Bati" loading="lazy" decoding="async">
+                                            <img src="{{ asset('images/post-3.webp') }}" alt="How to Choose the Right Bati Atta for Dal Bati" width="380" height="240" loading="lazy" decoding="async">
                                         </figure>
                                     </a>
                                 </div>

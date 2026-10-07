@@ -6,12 +6,23 @@
 
 
 
-	/* Preloader Effect */
-	$(window).on('load', function () {
-		setTimeout(function () {
-			$(".preloader").fadeOut(600);
-		}, 2200);
-	});
+	/* Preloader Effect - Smooth Fadeout Without Delaying LCP */
+	function dismissPreloader() {
+		var $pre = $(".preloader");
+		if ($pre.length && !$pre.hasClass('preloader-hidden')) {
+			$pre.addClass('preloader-hidden');
+			setTimeout(function () {
+				$pre.remove();
+			}, 300);
+		}
+	}
+	if (document.readyState === 'complete' || document.readyState === 'interactive') {
+		dismissPreloader();
+	} else {
+		$(document).ready(dismissPreloader);
+		$(window).on('load', dismissPreloader);
+		setTimeout(dismissPreloader, 450);
+	}
 
 	/* Sticky Header - Optimized for Zero Forced Reflow */
 	var $header = $("header.active-sticky-header");
@@ -321,10 +332,10 @@
 		}
 
 		if ($('.text-anime-style-3').length) {
-			let animatedTextElements = document.querySelectorAll('.text-anime-style-3');
+			let animatedTextElements = Array.from(document.querySelectorAll('.text-anime-style-3'));
 
-			animatedTextElements.forEach((element) => {
-				//Reset if needed
+			let initHeadingItem = function (element) {
+				if (!element || element.split) return;
 				if (element.animation) {
 					element.animation.progress(1).kill();
 					element.split.revert();
@@ -351,7 +362,27 @@
 					ease: Back.easeOut,
 					stagger: 0.02,
 				});
-			});
+			};
+
+			// Initialize above-the-fold hero heading immediately
+			let firstHeading = animatedTextElements[0];
+			if (firstHeading) {
+				initHeadingItem(firstHeading);
+			}
+
+			// Defer remaining below-the-fold headings to avoid blocking the main thread (TBT)
+			if (animatedTextElements.length > 1) {
+				let remainingHeadings = animatedTextElements.slice(1);
+				if ('requestIdleCallback' in window) {
+					window.requestIdleCallback(function () {
+						remainingHeadings.forEach(initHeadingItem);
+					}, { timeout: 1200 });
+				} else {
+					setTimeout(function () {
+						remainingHeadings.forEach(initHeadingItem);
+					}, 150);
+				}
+			}
 		}
 	}
 
