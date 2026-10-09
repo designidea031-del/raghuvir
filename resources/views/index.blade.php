@@ -204,110 +204,20 @@
 .hero-spacer {
     height: 650px;
 }
-
-/* ── Tablet & Mobile Hero Optimizations (<= 991px) ───────────── */
 @media (max-width: 991px) {
-    /* Hide the huge empty spacer on mobile so video doesn't scale up 300% */
     .hero-spacer {
-        display: none !important;
-        height: 0 !important;
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .hero-image {
-        display: none !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        height: 380px;
     }
     .hero-bg-media-video {
-        object-position: center 48% !important;
-    }
-    .hero-box {
-        padding: 115px 0 25px !important;
-    }
-    .section-title h1,
-    .hero-title-entrance {
-        font-size: 32px !important;
-        line-height: 1.25 !important;
+        object-position: center center !important;
     }
 }
-
-/* ── Small Mobile Screens (<= 767px) ─────────────────────────── */
 @media (max-width: 767px) {
-    .hero.hero-dynamic-section {
-        margin-top: 0 !important;
-        border-radius: 0 !important;
+    .hero-spacer {
+        height: 280px;
     }
-
-    /* Clean balanced padding so the video doesn't over-stretch vertically */
-    .hero-box {
-        padding: 92px 0 18px !important;
-    }
-
-    .hero-content {
-        margin-bottom: 0 !important;
-        text-align: left !important;
-    }
-
-    /* Subtitle Badge Pill */
-    .section-title h3 {
-        font-size: 11.5px !important;
-        margin-bottom: 8px !important;
-        display: inline-block !important;
-        background: rgba(239, 128, 28, 0.3) !important;
-        color: #FFA44D !important;
-        padding: 4px 12px !important;
-        border-radius: 999px !important;
-        border: 1px solid rgba(239, 128, 28, 0.5) !important;
-        letter-spacing: 0.05em !important;
-        text-transform: uppercase !important;
-        backdrop-filter: blur(6px) !important;
-        -webkit-backdrop-filter: blur(6px) !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
-    }
-    .section-title h3::before {
-        display: none !important;
-    }
-
-    /* Main Hero Title - Compact & Bold with high-contrast text shadow */
-    .section-title h1,
-    .hero-title-entrance {
-        font-size: clamp(22px, 5.8vw, 28px) !important;
-        line-height: 1.22 !important;
-        font-weight: 800 !important;
-        color: #ffffff !important;
-        margin-bottom: 10px !important;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
-    }
-
-    /* Description Paragraphs - Clear and compact */
-    .section-title p {
-        font-size: 13.5px !important;
-        line-height: 1.42 !important;
-        color: rgba(255, 255, 255, 0.95) !important;
-        margin-top: 4px !important;
-        margin-bottom: 6px !important;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
-    }
-
-    /* Mobile Background Video - Perfect centering and crisp vibrancy */
     .hero-bg-media-video {
-        object-position: center 50% !important;
-        transform: translate(-50%, -50%) scale(1.02) !important;
-        filter: brightness(1.04) contrast(1.02) !important;
-    }
-
-    /* Balanced cinematic gradient overlay: bright and clear in the center where video action plays */
-    .hero.hero-dynamic-section::before {
-        opacity: {{ min((float)$heroOverlayOpacity, 0.42) }} !important;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0.55) 100%) !important;
-    }
-
-    /* Marquee Strip on Mobile */
-    .hero-company-slider-box {
-        padding: 10px 0 !important;
+        object-position: center center !important;
     }
 }
 </style>
