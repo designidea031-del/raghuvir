@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lead;
+use App\Models\Setting;
+use Database\Seeders\LeadSeeder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -15,6 +17,16 @@ class LeadController extends Controller
      */
     public function index(Request $request): View
     {
+        // Auto-seed demo leads once if database has no inquiries
+        if (Lead::count() === 0 && !Setting::get('leads_initial_seeded', false)) {
+            try {
+                LeadSeeder::seedDemoLeads();
+                Setting::set('leads_initial_seeded', '1', 'system', 'boolean', 'Leads Initial Seeded');
+            } catch (\Throwable $e) {
+                // Ignore gracefully
+            }
+        }
+
         $sortOrder = $request->input('sort', 'latest');
         $query = Lead::query();
 

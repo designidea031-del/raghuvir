@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             GallerySeeder::class,
             PageSeoSeeder::class,
+            LeadSeeder::class,
         ]);
     }
 }
