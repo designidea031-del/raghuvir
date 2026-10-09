@@ -408,17 +408,17 @@
         <form action="{{ route('admin.login.submit') }}" method="POST" id="loginForm" autocomplete="on">
             @csrf
 
-            <!-- Email -->
+            <!-- Email or Username -->
             <div class="form-group">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label">Email or Username</label>
                 <div class="input-wrapper">
-                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <i class="fa-regular fa-user input-icon"></i>
                     <input
-                        type="email"
+                        type="text"
                         name="email"
                         id="email"
                         class="form-control"
-                        placeholder="Enter your email"
+                        placeholder="Enter username or email (admin)"
                         value="{{ old('email') }}"
                         required
                         autofocus

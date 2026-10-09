@@ -62,6 +62,21 @@
                 <span class="nav-item-badge">Core</span>
             </button>
 
+            <!-- Nav Item: Home Hero Media -->
+            <button
+                type="button"
+                class="settings-nav-item {{ request('tab') === 'hero' ? 'active' : '' }}"
+                data-tab="pane-hero"
+            >
+                <div class="nav-item-icon">
+                    <i class="fa-solid fa-photo-film"></i>
+                </div>
+                <div>
+                    <div>Home Hero Media</div>
+                </div>
+                <span class="nav-item-badge" style="background: rgba(239, 128, 28, 0.15); color: #EF801C;">Hero</span>
+            </button>
+
             <!-- Nav Item: Contact -->
             <button
                 type="button"
@@ -357,6 +372,347 @@
                             <div class="card-footer-tip">
                                 <i class="fa-solid fa-info-circle"></i>
                                 <span>High-resolution transparent PNG or SVG images give the best clarity.</span>
+                            </div>
+                            <button type="submit" class="btn-syndron btn-syndron-primary">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                <span>Save Changes</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Hero Media Jump Card -->
+                    <div style="background: linear-gradient(135deg, rgba(239, 128, 28, 0.08) 0%, rgba(239, 128, 28, 0.02) 100%); border: 1px dashed rgba(239, 128, 28, 0.35); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(239, 128, 28, 0.15); color: #EF801C; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+                                <i class="fa-solid fa-photo-film"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 0.88rem; color: var(--foreground);">Home Page Hero Background Media (Section 1)</div>
+                                <div style="font-size: 0.775rem; color: var(--muted-foreground);">Upload dynamic background image or autolooping background video with responsive fit.</div>
+                            </div>
+                        </div>
+                        <button type="button" onclick="document.querySelector('[data-tab=\'pane-hero\']').click();" class="btn-syndron btn-syndron-secondary" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;">
+                            <span>Manage Hero Background</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ------------------------------------------------------------- -->
+            <!-- TAB: HOMEPAGE HERO MEDIA (SECTION 1 BACKGROUND)              -->
+            <!-- ------------------------------------------------------------- -->
+            <div class="syndron-tab-pane {{ request('tab') === 'hero' ? 'active' : '' }}" id="pane-hero">
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Card 1: Homepage Section 1 Background Media -->
+                    <div class="card-syndron" style="margin-bottom: 0;">
+                        <div class="card-syndron-header">
+                            <div>
+                                <h3 class="card-syndron-title">
+                                    <div class="card-icon-pill" style="background: rgba(239, 128, 28, 0.12); color: #EF801C;">
+                                        <i class="fa-solid fa-photo-film"></i>
+                                    </div>
+                                    <span>Homepage Hero Background (Section 1)</span>
+                                </h3>
+                                <p class="card-syndron-desc">
+                                    Manage dynamic background media for Section 1 on the homepage. Upload an Image or Video with automatic responsive cover fit.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card-syndron-body">
+                            {{-- Info Banner --}}
+                            <div style="background: rgba(239, 128, 28, 0.08); border: 1px solid rgba(239, 128, 28, 0.25); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                                <div style="color: #EF801C; font-size: 1.25rem; margin-top: 2px;">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </div>
+                                <div style="font-size: 0.85rem; color: var(--foreground); line-height: 1.5;">
+                                    <strong>Dynamic Media Engine:</strong> You can upload either a <strong>Video (MP4 / WEBM)</strong> or a high-res <strong>Image (WEBP / JPG / PNG)</strong>. Whichever you upload, it automatically scales and covers the entire background across mobile, tablet, and desktop screens with seamless responsive alignment and dark contrast overlay.
+                                </div>
+                            </div>
+
+                            @php
+                                $heroBgType = setting('home_hero_bg_type', 'auto');
+                                $heroBgImg = setting('home_hero_bg_image');
+                                $heroBgVid = setting('home_hero_bg_video');
+                                $heroBgVidUrl = setting('home_hero_bg_video_url');
+                                $heroBgPos = setting('home_hero_bg_position', 'right 30%');
+                                $heroOpacity = setting('home_hero_overlay_opacity', '0.60');
+
+                                $effectiveVideo = null;
+                                if (!empty($heroBgVid)) {
+                                    $effectiveVideo = storage_asset($heroBgVid);
+                                } elseif (!empty($heroBgVidUrl)) {
+                                    $effectiveVideo = $heroBgVidUrl;
+                                }
+
+                                $effectiveImage = !empty($heroBgImg) ? storage_asset($heroBgImg) : asset('images/home_hero.webp');
+                                $isActiveVideo = ($heroBgType === 'video' || ($heroBgType === 'auto' && !empty($effectiveVideo))) && !empty($effectiveVideo);
+                            @endphp
+
+                            <!-- Live Active Background Status Banner -->
+                            <div style="background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-weight: 700; font-size: 0.9rem; color: var(--foreground);">Current Live Hero Background</span>
+                                        @if($isActiveVideo)
+                                            <span style="background: #10b981; color: #fff; font-size: 0.725rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fa-solid fa-video"></i> Video Background Active
+                                            </span>
+                                        @elseif(!empty($heroBgImg))
+                                            <span style="background: #3b82f6; color: #fff; font-size: 0.725rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fa-solid fa-image"></i> Custom Image Active
+                                            </span>
+                                        @else
+                                            <span style="background: #64748b; color: #fff; font-size: 0.725rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">
+                                                <i class="fa-solid fa-check"></i> Default Theme Image
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <span style="font-size: 0.78rem; color: var(--muted-foreground);">
+                                        Overlay Opacity: <strong>{{ round((float)$heroOpacity * 100) }}%</strong> &bull; Alignment: <strong>{{ $heroBgPos }}</strong>
+                                    </span>
+                                </div>
+
+                                <!-- Live Interactive Preview Box -->
+                                <div style="position: relative; width: 100%; height: 260px; border-radius: 10px; overflow: hidden; background: #0f172a; border: 1px solid var(--border);">
+                                    @if($isActiveVideo)
+                                        <video
+                                            id="adminLiveHeroVideo"
+                                            autoplay
+                                            muted
+                                            loop
+                                            playsinline
+                                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;"
+                                            poster="{{ $effectiveImage }}"
+                                        >
+                                            <source src="{{ $effectiveVideo }}">
+                                        </video>
+                                    @else
+                                        <div
+                                            id="adminLiveHeroImageBg"
+                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('{{ $effectiveImage }}') no-repeat {{ $heroBgPos }}; background-size: cover;"
+                                        ></div>
+                                    @endif
+
+                                    <!-- Overlay Layer Simulation -->
+                                    <div
+                                        id="adminLiveHeroOverlay"
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #EF801C; opacity: {{ $heroOpacity }}; pointer-events: none; mix-blend-mode: multiply;"
+                                    ></div>
+                                    <div
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.35); pointer-events: none;"
+                                    ></div>
+
+                                    <!-- Simulated Hero Text Content -->
+                                    <div style="position: absolute; bottom: 20px; left: 24px; right: 24px; pointer-events: none; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                                        <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Healthy Farms, Healthy Lives</span>
+                                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 8px 0 4px; color: #fff; line-height: 1.2;">Raghuvir Hygienic Chakki Atta: Pure Whole Wheat Atta</h2>
+                                        <p style="font-size: 0.8rem; margin: 0; opacity: 0.9; max-width: 550px;">Section 1 Hero Banner Live Preview</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Settings Control Form Fields -->
+                            <div class="grid-2-col" style="grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                                <!-- Media Mode Choice -->
+                                <div class="form-group-admin" style="margin-bottom: 0;">
+                                    <label for="home_hero_bg_type" class="form-label-admin">
+                                        <i class="fa-solid fa-sliders" style="color: #EF801C; margin-right: 4px;"></i>
+                                        Background Priority Mode
+                                    </label>
+                                    <select name="home_hero_bg_type" id="home_hero_bg_type" class="form-control-admin">
+                                        <option value="auto" {{ old('home_hero_bg_type', $heroBgType) === 'auto' ? 'selected' : '' }}>
+                                            ⚡ Auto Detect (Recommended: Video if uploaded, else Image)
+                                        </option>
+                                        <option value="video" {{ old('home_hero_bg_type', $heroBgType) === 'video' ? 'selected' : '' }}>
+                                            🎬 Video Background Mode (Always play video)
+                                        </option>
+                                        <option value="image" {{ old('home_hero_bg_type', $heroBgType) === 'image' ? 'selected' : '' }}>
+                                            🖼️ Image Background Mode (Always show image)
+                                        </option>
+                                    </select>
+                                    <div class="form-hint">Choose whether to prioritize the video background or the image background.</div>
+                                </div>
+
+                                <!-- Image Position Alignment -->
+                                <div class="form-group-admin" style="margin-bottom: 0;">
+                                    <label for="home_hero_bg_position" class="form-label-admin">
+                                        <i class="fa-solid fa-arrows-up-down-left-right" style="color: #EF801C; margin-right: 4px;"></i>
+                                        Background Image Alignment
+                                    </label>
+                                    <select name="home_hero_bg_position" id="home_hero_bg_position" class="form-control-admin">
+                                        <option value="center center" {{ old('home_hero_bg_position', $heroBgPos) === 'center center' ? 'selected' : '' }}>
+                                            Center Center (Perfect Balanced Fit)
+                                        </option>
+                                        <option value="right 30%" {{ old('home_hero_bg_position', $heroBgPos) === 'right 30%' ? 'selected' : '' }}>
+                                            Right 30% (Original Theme Default)
+                                        </option>
+                                        <option value="center top" {{ old('home_hero_bg_position', $heroBgPos) === 'center top' ? 'selected' : '' }}>
+                                            Center Top (Focus Upper Portion)
+                                        </option>
+                                        <option value="center bottom" {{ old('home_hero_bg_position', $heroBgPos) === 'center bottom' ? 'selected' : '' }}>
+                                            Center Bottom (Focus Lower Portion)
+                                        </option>
+                                    </select>
+                                    <div class="form-hint">Controls CSS object/background position for optimal visual focal point.</div>
+                                </div>
+                            </div>
+
+                            <!-- Overlay Opacity Slider/Select -->
+                            <div class="form-group-admin" style="margin-bottom: 1.75rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <label for="home_hero_overlay_opacity" class="form-label-admin" style="margin-bottom: 0;">
+                                        <i class="fa-solid fa-circle-half-stroke" style="color: #EF801C; margin-right: 4px;"></i>
+                                        Hero Color Overlay Opacity
+                                    </label>
+                                    <span id="opacityDisplayBadge" style="font-size: 0.75rem; font-weight: 700; color: #EF801C; background: rgba(239, 128, 28, 0.12); padding: 2px 8px; border-radius: 6px;">
+                                        {{ round((float)$heroOpacity * 100) }}%
+                                    </span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <input
+                                        type="range"
+                                        name="home_hero_overlay_opacity"
+                                        id="home_hero_overlay_opacity"
+                                        min="0.20"
+                                        max="0.85"
+                                        step="0.05"
+                                        value="{{ old('home_hero_overlay_opacity', $heroOpacity) }}"
+                                        style="flex: 1; accent-color: #EF801C; cursor: pointer;"
+                                        oninput="document.getElementById('opacityDisplayBadge').innerText = Math.round(this.value * 100) + '%'; if(document.getElementById('adminLiveHeroOverlay')) document.getElementById('adminLiveHeroOverlay').style.opacity = this.value;"
+                                    >
+                                </div>
+                                <div class="form-hint">Adjust the semi-transparent overlay to ensure headings and buttons remain 100% sharp and readable over bright videos or images. Recommended: 50% - 65%.</div>
+                            </div>
+
+                            <!-- Upload Grid: Video Upload + Image Upload -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                                <!-- Column 1: Video Background Upload -->
+                                <div class="logo-upload-dropzone" style="min-width: 0; padding: 1.25rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--foreground); display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-file-video" style="color: #EF801C;"></i>
+                                            Hero Video Background
+                                        </span>
+                                        <span style="font-size: 0.7rem; color: var(--muted-foreground); background: var(--secondary); padding: 2px 6px; border-radius: 4px;">MP4, WEBM (Max 40MB)</span>
+                                    </div>
+
+                                    <div style="border: 2px dashed var(--border); border-radius: 10px; padding: 1.25rem; text-align: center; background: rgba(0,0,0,0.02); margin-bottom: 0.75rem;">
+                                        @if(!empty($heroBgVid))
+                                            <div style="margin-bottom: 0.75rem;">
+                                                <video controls muted style="max-width: 100%; height: 130px; border-radius: 6px; background: #000; object-fit: cover;">
+                                                    <source src="{{ storage_asset($heroBgVid) }}">
+                                                </video>
+                                                <div style="font-size: 0.75rem; color: #10b981; font-weight: 600; margin-top: 4px;">
+                                                    <i class="fa-solid fa-circle-check"></i> File Uploaded & Stored on Server
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div style="padding: 1.5rem 0;">
+                                                <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2.25rem; color: #94a3b8; margin-bottom: 0.5rem; display: block;"></i>
+                                                <div style="font-size: 0.82rem; font-weight: 600; color: var(--foreground);">Upload Video for Section 1</div>
+                                                <div style="font-size: 0.75rem; color: var(--muted-foreground); margin-top: 2px;">Looping background video for modern feel</div>
+                                            </div>
+                                        @endif
+
+                                        <label for="home_hero_bg_video" class="btn-syndron btn-syndron-primary" style="margin-top: 0.5rem; width: 100%; justify-content: center; cursor: pointer; font-size: 0.82rem;">
+                                            <i class="fa-solid fa-upload"></i>
+                                            <span>{{ !empty($heroBgVid) ? 'Replace Current Video' : 'Choose Video File' }}</span>
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="home_hero_bg_video"
+                                            id="home_hero_bg_video"
+                                            accept="video/mp4,video/webm,video/ogg"
+                                            style="display: none;"
+                                            onchange="if(this.files && this.files[0]) { document.getElementById('selectedVideoName').innerText = 'Selected: ' + this.files[0].name + ' (' + (this.files[0].size/1024/1024).toFixed(1) + ' MB)'; document.getElementById('selectedVideoName').style.display='block'; }"
+                                        >
+                                        <div id="selectedVideoName" style="display: none; font-size: 0.775rem; color: #EF801C; font-weight: 600; margin-top: 6px;"></div>
+                                    </div>
+
+                                    <!-- Video URL Input (Alternative for Large/CDN files) -->
+                                    <div class="form-group-admin" style="margin-top: 0.75rem; margin-bottom: 0.5rem;">
+                                        <label for="home_hero_bg_video_url" class="form-label-admin" style="font-size: 0.78rem;">
+                                            Or External Video Direct URL (Optional)
+                                        </label>
+                                        <input
+                                            type="url"
+                                            name="home_hero_bg_video_url"
+                                            id="home_hero_bg_video_url"
+                                            class="form-control-admin"
+                                            placeholder="https://example.com/videos/hero.mp4"
+                                            value="{{ old('home_hero_bg_video_url', $heroBgVidUrl) }}"
+                                            style="font-size: 0.82rem;"
+                                        >
+                                        <div class="form-hint" style="font-size: 0.72rem;">Use if hosting large videos on Amazon S3, Cloudflare, or CDN.</div>
+                                    </div>
+
+                                    @if(!empty($heroBgVid) || !empty($heroBgVidUrl))
+                                        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.775rem; color: #ef4444; margin-top: 0.5rem; cursor: pointer;">
+                                            <input type="checkbox" name="remove_home_hero_bg_video" value="1">
+                                            <span>Remove video and switch back to image background</span>
+                                        </label>
+                                    @endif
+                                </div>
+
+                                <!-- Column 2: Image Background Upload -->
+                                <div class="logo-upload-dropzone" style="min-width: 0; padding: 1.25rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                        <span style="font-weight: 700; font-size: 0.88rem; color: var(--foreground); display: flex; align-items: center; gap: 6px;">
+                                            <i class="fa-solid fa-file-image" style="color: #EF801C;"></i>
+                                            Hero Image Background
+                                        </span>
+                                        <span style="font-size: 0.7rem; color: var(--muted-foreground); background: var(--secondary); padding: 2px 6px; border-radius: 4px;">WEBP, JPG, PNG (Max 10MB)</span>
+                                    </div>
+
+                                    <div style="border: 2px dashed var(--border); border-radius: 10px; padding: 1.25rem; text-align: center; background: rgba(0,0,0,0.02); margin-bottom: 0.75rem;">
+                                        <div style="margin-bottom: 0.75rem;">
+                                            <img
+                                                id="heroBgImagePreview"
+                                                src="{{ $effectiveImage }}"
+                                                alt="Hero Background Preview"
+                                                style="width: 100%; height: 130px; object-fit: cover; border-radius: 6px; background: #1e293b;"
+                                            >
+                                            <div style="font-size: 0.75rem; color: {{ !empty($heroBgImg) ? '#10b981' : '#64748b' }}; font-weight: 600; margin-top: 4px;">
+                                                <i class="fa-solid {{ !empty($heroBgImg) ? 'fa-circle-check' : 'fa-image' }}"></i>
+                                                {{ !empty($heroBgImg) ? 'Custom Image Active' : 'Default Theme Image (home_hero.webp)' }}
+                                            </div>
+                                        </div>
+
+                                        <label for="home_hero_bg_image" class="btn-syndron btn-syndron-primary" style="margin-top: 0.5rem; width: 100%; justify-content: center; cursor: pointer; font-size: 0.82rem;">
+                                            <i class="fa-solid fa-upload"></i>
+                                            <span>{{ !empty($heroBgImg) ? 'Replace Background Image' : 'Choose Background Image' }}</span>
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="home_hero_bg_image"
+                                            id="home_hero_bg_image"
+                                            accept="image/png,image/jpeg,image/webp,image/svg+xml"
+                                            style="display: none;"
+                                            onchange="previewImage(this, 'heroBgImagePreview'); if(document.getElementById('adminLiveHeroImageBg')) { const r=new FileReader(); r.onload=e=>document.getElementById('adminLiveHeroImageBg').style.backgroundImage='url('+e.target.result+')'; r.readAsDataURL(this.files[0]); }"
+                                        >
+                                    </div>
+
+                                    <div class="form-hint" style="font-size: 0.75rem; line-height: 1.4; margin-top: 0.5rem;">
+                                        <i class="fa-solid fa-circle-info" style="color: #EF801C;"></i>
+                                        Also functions as the video poster (thumbnail shown before video plays on mobile and low-bandwidth connections).
+                                    </div>
+
+                                    @if(!empty($heroBgImg))
+                                        <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.775rem; color: #ef4444; margin-top: 0.75rem; cursor: pointer;">
+                                            <input type="checkbox" name="remove_home_hero_bg_image" value="1">
+                                            <span>Reset to default website theme image</span>
+                                        </label>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-syndron-footer">
+                            <div class="card-footer-tip">
+                                <i class="fa-solid fa-shield-halved" style="color: #10b981;"></i>
+                                <span>Changes save instantly and update the live home page Section 1 across all mobile & desktop views.</span>
                             </div>
                             <button type="submit" class="btn-syndron btn-syndron-primary">
                                 <i class="fa-solid fa-floppy-disk"></i>

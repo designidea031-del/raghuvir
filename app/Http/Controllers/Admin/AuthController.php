@@ -31,13 +31,26 @@ class AuthController extends Controller
      */
     public function login(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255'],
+        $request->validate([
+            'email' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string'],
         ]);
 
+        $inputLogin = trim($request->input('email'));
+        $matchedUser = \App\Models\User::where('email', $inputLogin)
+            ->orWhere('name', $inputLogin)
+            ->when(strtolower($inputLogin) === 'admin', function ($q) {
+                $q->orWhere('role', 'admin')->orWhere('is_admin', true);
+            })
+            ->first();
+
+        $credentials = [
+            'email' => $matchedUser ? $matchedUser->email : $inputLogin,
+            'password' => $request->input('password'),
+        ];
+
         $ip = $request->ip();
-        $accountThrottleKey = Str::transliterate(Str::lower($request->input('email')) . '|' . $ip);
+        $accountThrottleKey = Str::transliterate(Str::lower($inputLogin) . '|' . $ip);
         $ipThrottleKey = 'admin-login-ip:' . $ip;
 
         // Check 1: Account + IP limit (max 5 failed attempts within decay window)

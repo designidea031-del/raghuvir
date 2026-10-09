@@ -115,25 +115,214 @@
 @endsection
 
 @section('content')
+@php
+    $heroBgType = setting('home_hero_bg_type', 'auto');
+    $heroCustomImage = setting('home_hero_bg_image');
+    $heroCustomVideo = setting('home_hero_bg_video');
+    $heroVideoUrl = setting('home_hero_bg_video_url');
+    $heroBgPosition = setting('home_hero_bg_position', 'right 30%');
+    $heroOverlayOpacity = (float) setting('home_hero_overlay_opacity', 0.60);
+
+    // Resolve video source
+    $resolvedVideo = null;
+    if (!empty($heroCustomVideo)) {
+        $resolvedVideo = storage_asset($heroCustomVideo);
+    } elseif (!empty($heroVideoUrl)) {
+        $resolvedVideo = $heroVideoUrl;
+    }
+
+    // Resolve image source (custom or default fallback)
+    $resolvedImage = !empty($heroCustomImage) ? storage_asset($heroCustomImage) : asset('images/home_hero.webp');
+
+    // Determine if video mode is active
+    $hasVideo = ($heroBgType === 'video' || ($heroBgType === 'auto' && !empty($resolvedVideo))) && !empty($resolvedVideo);
+@endphp
+
 <style>
+.hero.hero-dynamic-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background video wrapper - perfect fit, responsive, autoloop */
+.hero-bg-media-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-bg-media-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: {{ $heroBgPosition }} !important;
+    z-index: 0;
+}
+
+/* Dynamic overlay to guarantee text contrast */
+.hero.hero-dynamic-section::before {
+    opacity: {{ $heroOverlayOpacity }} !important;
+    z-index: 1 !important;
+}
+
+@if($hasVideo)
+    .hero.hero-dynamic-section {
+        background: #0b1315 !important;
+    }
+    @media (max-width: 1199px) {
+        .hero.hero-dynamic-section {
+            background: #0b1315 !important;
+        }
+    }
+@else
+    .hero.hero-dynamic-section {
+        background-image: url('{{ $resolvedImage }}') !important;
+        background-position: {{ $heroBgPosition }} !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+    @media (max-width: 1199px) {
+        .hero.hero-dynamic-section {
+            background-image: url('{{ $resolvedImage }}') !important;
+            background-position: center center !important;
+            background-size: cover !important;
+        }
+    }
+@endif
+
 .hero-spacer {
     height: 650px;
 }
+
+/* ── Tablet & Mobile Hero Optimizations (<= 991px) ───────────── */
 @media (max-width: 991px) {
+    /* Hide the huge empty spacer on mobile so video doesn't scale up 300% */
     .hero-spacer {
-        height: 380px;
+        display: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .hero-image {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .hero-box {
+        padding: 130px 0 35px !important;
+    }
+    .section-title h1,
+    .hero-title-entrance {
+        font-size: 34px !important;
+        line-height: 1.25 !important;
     }
 }
+
+/* ── Small Mobile Screens (<= 767px) ─────────────────────────── */
 @media (max-width: 767px) {
-    .hero-spacer {
-        height: 280px;
+    .hero.hero-dynamic-section {
+        margin-top: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .hero-box {
+        padding: 100px 0 25px !important;
+    }
+
+    .hero-content {
+        margin-bottom: 0 !important;
+        text-align: left !important;
+    }
+
+    /* Subtitle Badge Pill */
+    .section-title h3 {
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+        display: inline-block !important;
+        background: rgba(239, 128, 28, 0.25) !important;
+        color: #FFA44D !important;
+        padding: 4px 12px !important;
+        border-radius: 999px !important;
+        border: 1px solid rgba(239, 128, 28, 0.45) !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    }
+    .section-title h3::before {
+        display: none !important;
+    }
+
+    /* Main Hero Title - Compact & Bold */
+    .section-title h1,
+    .hero-title-entrance {
+        font-size: clamp(23px, 6.2vw, 30px) !important;
+        line-height: 1.22 !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;
+        margin-bottom: 12px !important;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    /* Description Paragraphs */
+    .section-title p {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        margin-top: 6px !important;
+        margin-bottom: 8px !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+    }
+
+
+    /* Enhanced contrast overlay so video playback never washes out text */
+    .hero.hero-dynamic-section::before {
+        opacity: {{ max((float)$heroOverlayOpacity, 0.55) }} !important;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(20, 20, 20, 0.45) 50%, rgba(0, 0, 0, 0.75) 100%) !important;
+    }
+
+    /* Marquee Strip on Mobile */
+    .hero-company-slider-box {
+        padding: 12px 0 !important;
     }
 }
 </style>
 <!-- Header End -->
 
     <!-- Hero Section Start -->
-    <div class="hero bg-section dark-section">
+    <div class="hero hero-dynamic-section bg-section dark-section">
+        @if($hasVideo)
+            <!-- Autoloop Responsive Video Background -->
+            <div class="hero-bg-media-container" aria-hidden="true">
+                <video
+                    class="hero-bg-media-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    webkit-playsinline
+                    preload="auto"
+                    poster="{{ $resolvedImage }}"
+                >
+                    <source src="{{ $resolvedVideo }}" type="video/mp4">
+                    <source src="{{ $resolvedVideo }}" type="video/webm">
+                </video>
+            </div>
+        @endif
         <!-- Hero Box Start -->
         <div class="hero-box">
             <div class="container">
@@ -151,7 +340,7 @@
                             <!-- Section Title End -->
 
                             <!-- Hero Button Start -->
-                            <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s" style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+                            <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
                                 <a href="{{ route('products') }}" class="btn-default btn-highlighted">Our Products</a>
                                 <a href="{{ route('contact') }}" class="btn-default">Get Started</a>
                             </div>

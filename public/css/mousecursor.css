@@ -310,3 +310,12 @@
 	transition: box-shadow 0.2s;
 	transition: box-shadow 0.2s, -webkit-box-shadow 0.2s, -moz-box-shadow 0.2s;
 }
+
+@media (max-width: 991px), (pointer: coarse) {
+	.cb-cursor {
+		display: none !important;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		pointer-events: none !important;
+	}
+}

@@ -224,6 +224,325 @@
 			margin-top: 20px;
 			overflow: hidden;
 		}
+
+		/* ── Premium Mobile Hamburger Button & SlickNav Menu ─────────── */
+		.responsive-menu {
+			position: relative;
+			z-index: 9999;
+		}
+
+		.slicknav_menu {
+			background: transparent !important;
+			padding: 0 !important;
+			position: relative !important;
+		}
+
+		/* Vibrant Raghuvir Brand Hamburger Button */
+		.navbar-toggle .slicknav_btn,
+		.slicknav_btn,
+		.navbar-toggle .slicknav_btn.slicknav_open,
+		.slicknav_btn.slicknav_open {
+			background: #EF801C !important;
+			background: linear-gradient(135deg, #EF801C 0%, #D86B0E 100%) !important;
+			border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+			width: 44px !important;
+			height: 44px !important;
+			border-radius: 10px !important;
+			box-shadow: 0 4px 14px rgba(239, 128, 28, 0.45) !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			padding: 0 !important;
+			margin: 0 !important;
+			cursor: pointer !important;
+			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+			text-decoration: none !important;
+			outline: none !important;
+		}
+
+		.navbar-toggle .slicknav_btn:hover,
+		.slicknav_btn:hover {
+			background: linear-gradient(135deg, #FF8F2D 0%, #E07010 100%) !important;
+			box-shadow: 0 6px 20px rgba(239, 128, 28, 0.6) !important;
+			transform: scale(1.05) !important;
+		}
+
+		.slicknav_btn .slicknav_menutxt {
+			display: none !important;
+		}
+
+		.slicknav_icon,
+		.navbar-toggle .slicknav_icon {
+			width: 22px !important;
+			height: 16px !important;
+			margin: 0 !important;
+			position: relative !important;
+			display: block !important;
+			float: none !important;
+		}
+
+		.slicknav_icon:before,
+		.navbar-toggle .slicknav_icon:before {
+			display: none !important;
+			content: none !important;
+		}
+
+		/* 3 Clean Pure White Hamburger Bars */
+		.slicknav_icon .slicknav_icon-bar,
+		.navbar-toggle .slicknav_icon .slicknav_icon-bar {
+			display: block !important;
+			position: absolute !important;
+			left: 0 !important;
+			width: 22px !important;
+			height: 2.5px !important;
+			background-color: #FFFFFF !important;
+			border-radius: 4px !important;
+			margin: 0 !important;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+			transition: transform 0.25s ease-in-out, opacity 0.2s ease-in-out, top 0.25s ease-in-out !important;
+			transform-origin: 50% 50% !important;
+		}
+
+		/* 3 Clean Centered Bars when CLOSED */
+		.slicknav_icon span.slicknav_icon-bar:nth-child(1),
+		.navbar-toggle .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+			top: 0px !important;
+			transform: none !important;
+		}
+
+		.slicknav_icon span.slicknav_icon-bar:nth-child(2),
+		.navbar-toggle .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+			top: 6.75px !important;
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
+		.slicknav_icon span.slicknav_icon-bar:nth-child(3),
+		.navbar-toggle .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+			top: 13.5px !important;
+			transform: none !important;
+		}
+
+		/* Animated Crisp White Centered 'X' When Open */
+		.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1),
+		.navbar-toggle .slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(1) {
+			top: 6.75px !important;
+			transform: rotate(45deg) !important;
+			background-color: #FFFFFF !important;
+		}
+
+		.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2),
+		.navbar-toggle .slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(2) {
+			opacity: 0 !important;
+			transform: scaleX(0) !important;
+		}
+
+		.slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3),
+		.navbar-toggle .slicknav_btn.slicknav_open .slicknav_icon span.slicknav_icon-bar:nth-child(3) {
+			top: 6.75px !important;
+			transform: rotate(-45deg) !important;
+			background-color: #FFFFFF !important;
+		}
+
+		/* Mobile Navigation Dropdown Box */
+		.slicknav_menu .mega-menu-wrapper {
+			display: none !important;
+			visibility: hidden !important;
+			height: 0 !important;
+			overflow: hidden !important;
+		}
+
+		.slicknav_nav {
+			background: #14171a !important;
+			background-color: #14171a !important;
+			border-radius: 16px !important;
+			border: 1px solid rgba(255, 255, 255, 0.12) !important;
+			border-top: 3px solid #EF801C !important;
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95) !important;
+			margin: 12px 0 0 0 !important;
+			padding: 10px 0 !important;
+			list-style: none !important;
+			overflow: hidden !important;
+			clear: both !important;
+			opacity: 1 !important;
+		}
+
+		/* Pure White, Readable Menu Item Links */
+		.slicknav_nav li {
+			display: block !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			background: #14171a !important;
+			background-color: #14171a !important;
+		}
+
+		.slicknav_nav .slicknav_row,
+		.slicknav_nav > li > a {
+			color: #FFFFFF !important;
+			font-size: 16px !important;
+			font-weight: 600 !important;
+			font-family: var(--default-font) !important;
+			padding: 14px 22px !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: space-between !important;
+			text-decoration: none !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+			border-radius: 0 !important;
+			margin: 0 !important;
+			line-height: 1.4 !important;
+			background: #14171a !important;
+			background-color: #14171a !important;
+			transition: all 0.2s ease !important;
+			position: relative !important;
+		}
+
+		.slicknav_nav li:last-child > a,
+		.slicknav_nav li:last-child > .slicknav_row {
+			border-bottom: none !important;
+		}
+
+		.slicknav_nav a:hover,
+		.slicknav_nav a:focus,
+		.slicknav_nav .slicknav_row:hover {
+			background: #1e2226 !important;
+			background-color: #1e2226 !important;
+			color: #EF801C !important;
+			padding-left: 26px !important;
+		}
+
+		.slicknav_nav .slicknav_open > .slicknav_row,
+		.slicknav_nav .slicknav_open > a {
+			background: #1b1e22 !important;
+			background-color: #1b1e22 !important;
+			color: #EF801C !important;
+		}
+
+		/* Submenu Styling */
+		.slicknav_nav ul,
+		.slicknav_nav .mobile-sub-only {
+			background: #0b0d0e !important;
+			background-color: #0b0d0e !important;
+			margin: 6px 14px 10px 14px !important;
+			padding: 6px 0 !important;
+			list-style: none !important;
+			border-radius: 12px !important;
+			border: 1px solid rgba(255, 255, 255, 0.08) !important;
+			border-left: 3px solid #EF801C !important;
+			box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+		}
+
+		.slicknav_nav ul li,
+		.slicknav_nav .mobile-sub-only li {
+			background: transparent !important;
+			background-color: transparent !important;
+		}
+
+		.slicknav_nav ul li a,
+		.slicknav_nav .mobile-sub-only li a {
+			color: rgba(255, 255, 255, 0.88) !important;
+			font-size: 14.5px !important;
+			font-weight: 500 !important;
+			padding: 12px 18px 12px 20px !important;
+			display: flex !important;
+			align-items: center !important;
+			gap: 12px !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+			background: transparent !important;
+			transition: all 0.2s ease !important;
+			text-decoration: none !important;
+		}
+
+		.slicknav_nav ul li:last-child a,
+		.slicknav_nav .mobile-sub-only li:last-child a {
+			border-bottom: none !important;
+		}
+
+		.slicknav_nav ul li a::before,
+		.slicknav_nav .mobile-sub-only li a::before {
+			content: '' !important;
+			display: inline-block !important;
+			width: 6px !important;
+			height: 6px !important;
+			border-radius: 50% !important;
+			background: #EF801C !important;
+			opacity: 0.8 !important;
+			transition: all 0.2s ease !important;
+			flex-shrink: 0 !important;
+		}
+
+		.slicknav_nav ul li a:hover,
+		.slicknav_nav ul li a:focus,
+		.slicknav_nav .mobile-sub-only li a:hover,
+		.slicknav_nav .mobile-sub-only li a:focus {
+			color: #FFA44D !important;
+			background: rgba(239, 128, 28, 0.12) !important;
+			padding-left: 24px !important;
+		}
+
+		.slicknav_nav ul li a:hover::before,
+		.slicknav_nav .mobile-sub-only li a:hover::before {
+			transform: scale(1.4) !important;
+			background: #FFA44D !important;
+			opacity: 1 !important;
+		}
+
+		/* Dropdown Arrow Badge - No text glyph leak, single clean chevron */
+		.slicknav_nav .slicknav_arrow {
+			font-size: 0 !important;
+			line-height: 0 !important;
+			color: transparent !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			width: 28px !important;
+			height: 28px !important;
+			border-radius: 8px !important;
+			background: rgba(239, 128, 28, 0.15) !important;
+			position: absolute !important;
+			right: 18px !important;
+			top: 50% !important;
+			transform: translateY(-50%) !important;
+			transition: all 0.25s ease !important;
+			margin: 0 !important;
+			text-indent: -9999px !important;
+			overflow: visible !important;
+		}
+
+		.slicknav_nav .slicknav_arrow:after {
+			content: '\f107' !important;
+			font-family: 'Font Awesome 6 Free', 'FontAwesome' !important;
+			font-weight: 900 !important;
+			font-size: 13px !important;
+			color: #EF801C !important;
+			display: block !important;
+			text-indent: 0 !important;
+			line-height: 1 !important;
+			transition: transform 0.25s ease !important;
+		}
+
+		.slicknav_nav .slicknav_open > .slicknav_item .slicknav_arrow,
+		.slicknav_nav .slicknav_open > a .slicknav_arrow,
+		.slicknav_nav .slicknav_open > .slicknav_row .slicknav_arrow {
+			background: #EF801C !important;
+		}
+
+		.slicknav_nav .slicknav_open > .slicknav_item .slicknav_arrow:after,
+		.slicknav_nav .slicknav_open > a .slicknav_arrow:after,
+		.slicknav_nav .slicknav_open > .slicknav_row .slicknav_arrow:after {
+			transform: rotate(180deg) !important;
+			color: #FFFFFF !important;
+		}
+
+		/* Disable custom cursor on mobile touch */
+		@media (max-width: 991px), (pointer: coarse) {
+			.cb-cursor {
+				display: none !important;
+				opacity: 0 !important;
+				visibility: hidden !important;
+				pointer-events: none !important;
+			}
+		}
 	</style>
 
 	<!-- Google Fonts -->
@@ -231,9 +550,8 @@
 
 	<!-- Core Layout Stylesheets (Synchronous to eliminate Cumulative Layout Shift) -->
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/custom.css') }}?v={{ file_exists(public_path('css/custom.css')) ? filemtime(public_path('css/custom.css')) : time() }}" rel="stylesheet">
-
-	<link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
 	<link href="{{ asset('css/swiper-bundle.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='screen'">
 	<link href="{{ asset('css/animate.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
@@ -375,7 +693,7 @@
     <!-- Wow js file -->
     <script src="{{ asset('js/wow.min.js') }}" defer></script>
     <!-- Main Custom js file -->
-    <script src="{{ asset('js/function.js') }}" defer></script>
+    <script src="{{ asset('js/function.js') }}?v={{ file_exists(public_path('js/function.js')) ? filemtime(public_path('js/function.js')) : time() }}" defer></script>
     <!-- Scroll To Top Button -->
     <a href="#top" id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" style="
         position: fixed;

@@ -34,6 +34,14 @@ class SettingController extends Controller
             'footer_logo' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:4096',
             'site_favicon' => 'nullable|file|mimes:jpeg,png,jpg,webp,svg,ico|max:2048',
 
+            // Home Hero Section 1 Background
+            'home_hero_bg_type' => 'nullable|in:auto,image,video',
+            'home_hero_bg_image' => 'nullable|file|mimes:jpeg,png,jpg,webp,svg|max:10240',
+            'home_hero_bg_video' => 'nullable|file|mimes:mp4,webm,ogg,mov|max:40960',
+            'home_hero_bg_video_url' => 'nullable|url|max:1000',
+            'home_hero_overlay_opacity' => 'nullable|numeric|min:0|max:1',
+            'home_hero_bg_position' => 'nullable|string|max:50',
+
             // Contact
             'contact_phone' => 'nullable|string|max:50',
             'contact_email' => 'nullable|email|max:150',
@@ -65,6 +73,10 @@ class SettingController extends Controller
         $textFields = [
             'site_title' => ['group' => 'general', 'type' => 'text'],
             'site_tagline' => ['group' => 'general', 'type' => 'text'],
+            'home_hero_bg_type' => ['group' => 'hero', 'type' => 'text'],
+            'home_hero_bg_video_url' => ['group' => 'hero', 'type' => 'url'],
+            'home_hero_overlay_opacity' => ['group' => 'hero', 'type' => 'text'],
+            'home_hero_bg_position' => ['group' => 'hero', 'type' => 'text'],
             'contact_phone' => ['group' => 'contact', 'type' => 'text'],
             'contact_email' => ['group' => 'contact', 'type' => 'email'],
             'whatsapp_number' => ['group' => 'contact', 'type' => 'text'],
@@ -95,14 +107,20 @@ class SettingController extends Controller
             }
         }
 
-        // 2. File Uploads (Logos & Favicon)
+        // 2. File Uploads (Logos, Favicon & Home Hero Media)
         $fileFields = [
-            'header_logo' => 'Header Brand Logo',
-            'footer_logo' => 'Footer / Dark Logo',
-            'site_favicon' => 'Site Favicon',
+            'header_logo' => ['label' => 'Header Brand Logo', 'group' => 'general', 'type' => 'image'],
+            'footer_logo' => ['label' => 'Footer / Dark Logo', 'group' => 'general', 'type' => 'image'],
+            'site_favicon' => ['label' => 'Site Favicon', 'group' => 'general', 'type' => 'image'],
+            'home_hero_bg_image' => ['label' => 'Home Hero Background Image', 'group' => 'hero', 'type' => 'image'],
+            'home_hero_bg_video' => ['label' => 'Home Hero Background Video', 'group' => 'hero', 'type' => 'video'],
         ];
 
-        foreach ($fileFields as $fileKey => $label) {
+        foreach ($fileFields as $fileKey => $config) {
+            $label = is_array($config) ? $config['label'] : $config;
+            $group = is_array($config) ? $config['group'] : 'general';
+            $type = is_array($config) ? $config['type'] : 'image';
+
             // Check if user requested reset/deletion
             if ($request->boolean('remove_' . $fileKey)) {
                 $oldVal = Setting::get($fileKey);
@@ -110,7 +128,7 @@ class SettingController extends Controller
                     $path = str_replace('storage/', '', $oldVal);
                     Storage::disk('public')->delete($path);
                 }
-                Setting::set($fileKey, '', 'general', 'image', $label);
+                Setting::set($fileKey, '', $group, $type, $label);
             } elseif ($request->hasFile($fileKey)) {
                 $file = $request->file($fileKey);
                 if ($file->isValid()) {
@@ -125,7 +143,7 @@ class SettingController extends Controller
                     $filename = $fileKey . '_' . time() . '.' . $ext;
                     $filePath = $file->storeAs('settings', $filename, 'public');
 
-                    Setting::set($fileKey, 'storage/' . $filePath, 'general', 'image', $label);
+                    Setting::set($fileKey, 'storage/' . $filePath, $group, $type, $label);
                 }
             }
         }

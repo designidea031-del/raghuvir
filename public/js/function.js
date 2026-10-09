@@ -58,7 +58,9 @@
 	/* Slick Menu JS */
 	$('#menu').slicknav({
 		label: '',
-		prependTo: '.responsive-menu'
+		prependTo: '.responsive-menu',
+		closedSymbol: '',
+		openedSymbol: ''
 	});
 
 	if ($("a[href='#top']").length) {
