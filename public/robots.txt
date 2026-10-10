@@ -2,4 +2,6 @@ User-agent: *
 Disallow: /admin/
 Allow: /
 
-Sitemap: http://127.0.0.1:8000/sitemap.xml
+Sitemap: https://raghuvirfoods.com/sitemap.xml
+
+

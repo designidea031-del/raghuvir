@@ -147,10 +147,10 @@ class WebmasterController extends Controller
 
         $content = $validated['robots_content'];
 
-        // Ensure Sitemap reference is present if not already in content
-        $sitemapLine = 'Sitemap: ' . url('/sitemap.xml');
-        if (!str_contains($content, 'sitemap.xml')) {
-            $content = rtrim($content) . "\n\n" . $sitemapLine . "\n";
+        // Ensure Sitemap reference is present if not already in content (avoid appending localhost in dev)
+        $baseUrl = url('/');
+        if (!str_contains($content, 'sitemap.xml') && !str_contains($baseUrl, '127.0.0.1') && !str_contains($baseUrl, 'localhost')) {
+            $content = rtrim($content) . "\n\nSitemap: " . url('/sitemap.xml') . "\n";
         }
 
         try {
