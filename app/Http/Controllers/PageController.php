@@ -42,7 +42,7 @@ class PageController extends Controller
 
     public function blog(Request $request)
     {
-        if (Blog::count() < 3) {
+        if (Blog::where('image', 'LIKE', '%blog-%')->count() < 3) {
             \Database\Seeders\BlogSeeder::seedArticles();
         }
 

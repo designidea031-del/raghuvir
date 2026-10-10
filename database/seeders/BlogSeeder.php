@@ -98,10 +98,10 @@ class BlogSeeder extends Seeder
     <p>“True nourishment is never about shortcuts. When you honor the natural structure of Sharbati whole wheat, your kitchen is rewarded with softer rotis, richer aromas, and deep digestive wellness.”</p>
 </blockquote>
 ',
-                'image' => 'images/post-1.webp',
+                'image' => 'images/blog-sharbati-wheat-nutrition.webp',
                 'banner_image' => null,
                 'banner_position' => 'center center',
-                'image_alt' => 'Golden Sharbati wheat grains compared to whole wheat flour on a wooden plate',
+                'image_alt' => 'Golden Sharbati wheat grains and freshly milled whole wheat flour in rustic bowls with chakki in background',
                 'category' => 'Health & Nutrition',
                 'tags' => 'Sharbati Wheat, Whole Wheat Atta, Glycemic Index, Nutrition, Soft Rotis, Healthy Diet',
                 'author_name' => 'Dr. Rajesh Patel, Food Science & Nutrition Specialist',
@@ -158,10 +158,10 @@ class BlogSeeder extends Seeder
     <li><strong>The Cold Water Settling Test:</strong> Stir a tablespoon of flour into a tall glass of cold water and let it rest for 30 minutes. Pure stone-ground chakki flour will display visible micro-flakes of natural brown bran settling throughout the sediment, with natural golden carotenoid suspension. Refined or stripped flour leaves a milky-white cloudy layer with little to no visible bran structure.</li>
 </ol>
 ',
-                'image' => 'images/post-2.webp',
+                'image' => 'images/blog-stone-chakki-milling.webp',
                 'banner_image' => null,
                 'banner_position' => 'center center',
-                'image_alt' => 'Traditional stone chakki grinding golden wheat into fresh unbleached flour',
+                'image_alt' => 'Traditional authentic stone chakki grinding golden whole wheat into fresh stoneground flour',
                 'category' => 'Chakki Milling Science',
                 'tags' => 'Stone Ground Chakki, Cold Pressed Atta, Roller Mill, Wheat Germ, Unbleached Flour, Healthy Living',
                 'author_name' => 'Er. Bhavesh Sankharva, Grain Processing & Milling Engineer',
@@ -227,10 +227,10 @@ class BlogSeeder extends Seeder
     <p>“Pillowy soft rotis are not made by luck; they are made by respecting water temperature, gluten rest, and the purity of unadulterated whole grain flour.”</p>
 </blockquote>
 ',
-                'image' => 'images/post-3.webp',
+                'image' => 'images/blog-soft-puffed-rotis.webp',
                 'banner_image' => null,
                 'banner_position' => 'center center',
-                'image_alt' => 'Freshly puffed balloon phulka on tawa brushed with pure desi ghee',
+                'image_alt' => 'Puffed hot phulkas on iron tawa with rising steam, pure desi ghee and kneaded whole wheat dough in kitchen',
                 'category' => 'Recipes & Tips',
                 'tags' => 'Soft Roti Recipe, Roti Dough Hydration, Autolyse Technique, Puffed Phulka Tips, Gujarati Roti',
                 'author_name' => 'Chef Meera Sharma, Master Culinary Specialist & Food Columnist',
