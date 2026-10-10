@@ -25,6 +25,7 @@ Route::get('/contact/{product?}/{size?}', [PageController::class, 'contact'])->n
 Route::post('/contact/submit', [PageController::class, 'submitContact'])->name('contact.submit')->middleware('throttle:10,1');
 Route::post('/inquiry/submit', [PageController::class, 'submitInquiry'])->name('inquiry.submit')->middleware('throttle:10,1');
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+Route::get('/sitemap', fn () => redirect()->route('sitemap', [], 301));
 
 /*
 |--------------------------------------------------------------------------
@@ -221,4 +222,12 @@ Route::get('/storage/{path}', function (string $path) {
         'X-Content-Type-Options' => 'nosniff',
     ]);
 })->where('path', '.*')->name('storage.serve');
+
+Route::fallback(function (\Illuminate\Http\Request $request) {
+    if (str_contains($request->getRequestUri(), 'sitemap.xml')) {
+        return app(\App\Http\Controllers\SitemapController::class)->index();
+    }
+    abort(404);
+});
+
 
