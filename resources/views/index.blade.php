@@ -185,6 +185,18 @@
             background: #0b1315 !important;
         }
     }
+    /* Mobile-first bandwidth optimization: disable heavy 4.7MB video on mobile screens, use instant WebP LCP poster image */
+    @media (max-width: 768px) {
+        .hero-bg-media-container {
+            display: none !important;
+        }
+        .hero.hero-dynamic-section {
+            background-image: url('{{ $resolvedImage }}') !important;
+            background-position: center center !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+        }
+    }
 @else
     .hero.hero-dynamic-section {
         background-image: url('{{ $resolvedImage }}') !important;
@@ -235,7 +247,7 @@
                     loop
                     playsinline
                     webkit-playsinline
-                    preload="auto"
+                    preload="none"
                     poster="{{ $resolvedImage }}"
                 >
                     <source src="{{ $resolvedVideo }}" type="video/mp4">
@@ -339,7 +351,7 @@
                     <div class="about-us-images">
                         <div class="about-us-image-1">
                             <figure>
-                                <video autoplay loop muted playsinline style="width: 100%; aspect-ratio: 1 / 1.0417; object-fit: cover; border-radius: 12px; display: block;">
+                                <video autoplay loop muted playsinline preload="none" style="width: 100%; aspect-ratio: 1 / 1.0417; object-fit: cover; border-radius: 12px; display: block;">
                                     <source src="{{ asset('images/wheat video.mp4') }}" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>

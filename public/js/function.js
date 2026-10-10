@@ -13,7 +13,7 @@
 			$pre.addClass('preloader-hidden');
 			setTimeout(function () {
 				$pre.remove();
-			}, 300);
+			}, 200);
 		}
 	}
 	if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -21,7 +21,7 @@
 	} else {
 		$(document).ready(dismissPreloader);
 		$(window).on('load', dismissPreloader);
-		setTimeout(dismissPreloader, 450);
+		setTimeout(dismissPreloader, 200);
 	}
 
 	/* Sticky Header - Optimized for Zero Forced Reflow */

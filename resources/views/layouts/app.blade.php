@@ -150,6 +150,15 @@
 			visibility: hidden;
 			pointer-events: none;
 		}
+		/* Disable Preloader on Mobile to Maximize First Contentful Paint & Speed Index */
+		@media (max-width: 768px) {
+			.preloader {
+				display: none !important;
+				visibility: hidden !important;
+				opacity: 0 !important;
+				pointer-events: none !important;
+			}
+		}
 		i[class*="fa-"], .fa-solid, .fa-regular, .fa-brands {
 			display: inline-block;
 			width: 1em;
@@ -545,8 +554,9 @@
 		}
 	</style>
 
-	<!-- Google Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
+	<!-- Google Fonts (Non-blocking with display=swap) -->
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap" media="print" onload="this.media='all'">
 
 	<!-- Core Layout Stylesheets (Synchronous to eliminate Cumulative Layout Shift) -->
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -648,6 +658,12 @@
 		</div>
 	</div>
 	<!-- Preloader End -->
+	<script>
+		if (window.innerWidth <= 768) {
+			var p = document.querySelector('.preloader');
+			if (p) p.style.display = 'none';
+		}
+	</script>
 
 
 
