@@ -44,6 +44,76 @@
     </div>
     <!-- Page Header Section End -->
 
+    <!-- Editorial Blog Post Typography & Design System -->
+    <style>
+        .post-entry {
+            font-size: 1.06rem !important;
+            line-height: 1.88 !important;
+            color: #334155 !important;
+        }
+        .post-entry h2 {
+            font-size: 1.75rem !important;
+            font-weight: 800 !important;
+            color: #0f172a !important;
+            margin-top: 2.75rem !important;
+            margin-bottom: 1.15rem !important;
+            line-height: 1.35 !important;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .post-entry h3 {
+            font-size: 1.35rem !important;
+            font-weight: 700 !important;
+            color: #1e293b !important;
+            margin-top: 2.25rem !important;
+            margin-bottom: 0.85rem !important;
+            line-height: 1.4 !important;
+        }
+        .post-entry h4 {
+            font-size: 1.15rem !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
+            margin-top: 1.25rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        .post-entry p {
+            margin-bottom: 1.35rem !important;
+        }
+        .post-entry strong {
+            color: #0f172a !important;
+            font-weight: 700 !important;
+        }
+        .post-entry ul, .post-entry ol {
+            margin-bottom: 1.75rem !important;
+        }
+        .post-entry li {
+            margin-bottom: 0.65rem !important;
+        }
+        .post-entry .faq-block {
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .post-entry .faq-block:hover {
+            border-color: #EF801C !important;
+            box-shadow: 0 6px 18px rgba(239, 128, 28, 0.09) !important;
+            transform: translateY(-2px);
+        }
+        .post-entry table th {
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 768px) {
+            .post-entry h2 {
+                font-size: 1.45rem !important;
+                margin-top: 2rem !important;
+            }
+            .post-entry h3 {
+                font-size: 1.2rem !important;
+            }
+            .post-entry table {
+                font-size: 0.85rem !important;
+            }
+        }
+    </style>
+
     <!-- Page Single Post Start -->
     <div class="page-single-post">
         <div class="container">

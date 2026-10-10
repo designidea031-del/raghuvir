@@ -42,7 +42,7 @@ class PageController extends Controller
 
     public function blog(Request $request)
     {
-        if (Blog::where('image', 'LIKE', '%blog-%')->count() < 3) {
+        if (!str_contains(Blog::where('slug', 'sharbati-atta-vs-regular-atta-complete-nutrition-guide')->value('title') ?? '', 'Master Nutrition')) {
             \Database\Seeders\BlogSeeder::seedArticles();
         }
 
