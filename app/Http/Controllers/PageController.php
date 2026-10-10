@@ -42,6 +42,10 @@ class PageController extends Controller
 
     public function blog(Request $request)
     {
+        if (Blog::count() < 3) {
+            \Database\Seeders\BlogSeeder::seedArticles();
+        }
+
         $query = Blog::published();
 
         if ($request->filled('search')) {
