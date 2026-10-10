@@ -26,14 +26,14 @@
                 <div class="col-lg-12">
                     <!-- Page Header Box Start -->
                     <div class="page-header-box">
-                        <h1 class="text-anime-style-3" data-cursor="-opaque" style="max-width: 900px; margin: 0 auto 1.25rem;">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque" style="max-width: 860px; margin: 0 auto 1.25rem; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.3; text-shadow: 0 2px 10px rgba(0,0,0,0.35);">
                             {{ $blog->title }}
                         </h1>
                         <nav class="wow fadeInUp">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('blog') }}">Blog</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">{{ $blog->title }}</li>
+                                <li class="breadcrumb-item active" aria-current="page" title="{{ $blog->title }}">{{ Str::limit($blog->title, 35) }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -100,7 +100,32 @@
         .post-entry table th {
             letter-spacing: 0.02em;
         }
+
+        /* Clean Breadcrumb Single-Line Architecture */
+        .page-header-box ol.breadcrumb {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-wrap: nowrap !important;
+            max-width: 95% !important;
+            margin: 0 auto !important;
+        }
+        .page-header-box ol li.breadcrumb-item {
+            white-space: nowrap !important;
+            font-size: 14.5px !important;
+        }
+        .page-header-box ol li.breadcrumb-item.active {
+            max-width: 380px !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
         @media (max-width: 768px) {
+            .page-header-box ol li.breadcrumb-item.active {
+                max-width: 180px !important;
+            }
             .post-entry h2 {
                 font-size: 1.45rem !important;
                 margin-top: 2rem !important;

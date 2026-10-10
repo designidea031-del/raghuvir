@@ -42,7 +42,7 @@ class PageController extends Controller
 
     public function blog(Request $request)
     {
-        if (!str_contains(Blog::where('slug', 'sharbati-atta-vs-regular-atta-complete-nutrition-guide')->value('title') ?? '', 'Master Nutrition')) {
+        if (Blog::where('slug', 'sharbati-atta-vs-regular-atta-complete-nutrition-guide')->value('title') !== 'Sharbati Atta vs Regular Atta: Complete Nutrition & Soft Roti Guide') {
             \Database\Seeders\BlogSeeder::seedArticles();
         }
 

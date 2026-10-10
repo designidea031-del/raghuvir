@@ -23,7 +23,7 @@ class BlogSeeder extends Seeder
     {
         $posts = [
             [
-                'title' => 'The Master Nutrition & Culinary Guide: Sharbati Atta vs. Regular Commercial Flour — Glycemic Index, Moisture Thermodynamics & Digestive Health',
+                'title' => 'Sharbati Atta vs Regular Atta: Complete Nutrition & Soft Roti Guide',
                 'slug' => 'sharbati-atta-vs-regular-atta-complete-nutrition-guide',
                 'excerpt' => 'A rigorous, evidence-based exploration into India’s revered "Golden Grain": How unadulterated Sharbati whole wheat sustains a low glycemic index, achieves 70% natural hydration, and keeps rotis soft for 16+ hours without chemical additives.',
                 'content' => '
@@ -187,7 +187,7 @@ class BlogSeeder extends Seeder
                 'meta_keywords' => 'sharbati atta vs regular atta, sharbati wheat benefits, glycemic index of sharbati atta, soft roti flour, best chakki atta gujarat, whole wheat nutrition',
             ],
             [
-                'title' => 'Cold-Pressed Stone Chakki Milling vs. Industrial Roller Mills: The Bio-Mechanical Science of Nutrient Preservation & Living Enzymes',
+                'title' => 'Cold-Pressed Stone Chakki vs Roller Mills: The Nutrient Science',
                 'slug' => 'cold-pressed-stone-chakki-vs-roller-mills-nutrient-science',
                 'excerpt' => 'High-speed industrial steel rollers generate friction temperatures exceeding 85°C that destroy delicate wheat germ oils and vital B-complex vitamins. Discover the bio-physical science behind traditional low-RPM stone chakki grinding.',
                 'content' => '
@@ -312,7 +312,7 @@ class BlogSeeder extends Seeder
                 'meta_keywords' => 'stone ground atta vs roller mill, cold pressed chakki atta, wheat germ benefits, unbleached flour, pure chakki fresh atta, grain processing science',
             ],
             [
-                'title' => 'The Masterclass in Roti Perfection: The Biochemistry of Dough Hydration, Autolyse Relaxation & Tawa Thermodynamics',
+                'title' => 'The Science of Pillowy Soft Rotis: Dough Hydration & Tawa Masterclass',
                 'slug' => 'science-of-making-pillowy-soft-rotis-dough-hydration-guide',
                 'excerpt' => 'Why do some rotis turn leathery within an hour while others stay feather-light all day? An evidence-based masterclass covering protein glutenin/gliadin kinetics, the 20-minute autolyse secret, and heat transfer physics on the tawa.',
                 'content' => '
