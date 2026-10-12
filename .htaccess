@@ -16,7 +16,7 @@ Options -Indexes
     RewriteRule ^(artisan|composer\.(json|lock)|package(-lock)?\.json|vite\.config\.js|phpunit\.xml|AGENTS\.md|GEMINI\.md)(\..*)?$ - [F,L,NC]
 
     # Route all legitimate public requests through the public/ folder
-    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_URI} !public/
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 

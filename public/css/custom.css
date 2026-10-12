@@ -12531,9 +12531,8 @@ header.main-header .header-sticky.active {
 
 @media (max-width: 1199px) {
 	.hero {
-		background: url('../images/home_05.png') no-repeat !important;
-		background-position: center center !important;
-		background-size: cover !important;
+		background-position: center center;
+		background-size: cover;
 	}
 }
 

@@ -151,9 +151,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1 !important;
     overflow: hidden;
     pointer-events: none;
+    background: #0b1315 !important;
 }
 
 .hero-bg-media-video {
@@ -166,14 +167,20 @@
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    object-position: {{ $heroBgPosition }} !important;
-    z-index: 0;
+    object-position: center center !important;
+    z-index: 1 !important;
 }
 
 /* Dynamic overlay to guarantee text contrast */
 .hero.hero-dynamic-section::before {
     opacity: {{ $heroOverlayOpacity }} !important;
-    z-index: 1 !important;
+    z-index: 2 !important;
+}
+
+.hero-box,
+.hero .container {
+    position: relative;
+    z-index: 3 !important;
 }
 
 @if($hasVideo)
@@ -185,16 +192,9 @@
             background: #0b1315 !important;
         }
     }
-    /* Mobile-first bandwidth optimization: disable heavy 4.7MB video on mobile screens, use instant WebP LCP poster image */
     @media (max-width: 768px) {
-        .hero-bg-media-container {
-            display: none !important;
-        }
         .hero.hero-dynamic-section {
-            background-image: url('{{ $resolvedImage }}') !important;
-            background-position: center center !important;
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
+            background: #0b1315 !important;
         }
     }
 @else
@@ -242,18 +242,68 @@
             <div class="hero-bg-media-container" aria-hidden="true">
                 <video
                     class="hero-bg-media-video"
+                    src="{{ $resolvedVideo }}"
                     autoplay
                     muted
                     loop
                     playsinline
                     webkit-playsinline
-                    preload="none"
-                    poster="{{ $resolvedImage }}"
+                    x5-playsinline
+                    x5-video-player-type="h5"
+                    x5-video-player-fullscreen="true"
+                    preload="auto"
                 >
                     <source src="{{ $resolvedVideo }}" type="video/mp4">
-                    <source src="{{ $resolvedVideo }}" type="video/webm">
                 </video>
             </div>
+            <script>
+                (function() {
+                    function setupHeroVideo() {
+                        var v = document.querySelector('.hero-bg-media-video');
+                        if (!v) return;
+
+                        v.muted = true;
+                        v.defaultMuted = true;
+                        v.volume = 0;
+                        v.playsInline = true;
+
+                        function tryPlay() {
+                            if (v.paused) {
+                                var p = v.play();
+                                if (p && typeof p.catch === 'function') {
+                                    p.catch(function() {});
+                                }
+                            }
+                        }
+
+                        tryPlay();
+                        v.addEventListener('loadedmetadata', tryPlay);
+                        v.addEventListener('canplay', tryPlay);
+                        v.addEventListener('canplaythrough', tryPlay);
+
+                        var triggers = ['touchstart', 'touchend', 'scroll', 'click', 'pointerdown'];
+                        var handleInteract = function() {
+                            tryPlay();
+                            triggers.forEach(function(t) {
+                                window.removeEventListener(t, handleInteract, { passive: true, capture: true });
+                            });
+                        };
+                        triggers.forEach(function(t) {
+                            window.addEventListener(t, handleInteract, { passive: true, capture: true });
+                        });
+
+                        document.addEventListener('visibilitychange', function() {
+                            if (!document.hidden) tryPlay();
+                        });
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', setupHeroVideo);
+                    } else {
+                        setupHeroVideo();
+                    }
+                })();
+            </script>
         @endif
         <!-- Hero Box Start -->
         <div class="hero-box">
