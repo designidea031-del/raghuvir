@@ -29,12 +29,6 @@
                                     @if(setting('instagram_url'))
                                         <li><a href="{{ setting('instagram_url') }}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
                                     @endif
-                                    @if(setting('linkedin_url'))
-                                        <li><a href="{{ setting('linkedin_url') }}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</a></li>
-                                    @endif
-                                    @if(setting('youtube_url'))
-                                        <li><a href="{{ setting('youtube_url') }}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i>YouTube</a></li>
-                                    @endif
                                 </ul>
                             </div>
                         </div>
