@@ -1863,7 +1863,7 @@ function copySitemapUrl() {
 // Recommended Robots.txt Presets
 function setRecommendedRobots() {
     const sitemapUrl = "{{ url('/sitemap.xml') }}";
-    const recommended = "User-agent: *\nDisallow: /admin/\nAllow: /\n\nSitemap: " + sitemapUrl + "\n";
+    const recommended = "User-agent: *\nDisallow: /admin\nDisallow: /admin/\nAllow: /\n\nSitemap: " + sitemapUrl + "\n";
     const textarea = document.getElementById('robotsContentTextarea');
     if (textarea) {
         textarea.value = recommended;

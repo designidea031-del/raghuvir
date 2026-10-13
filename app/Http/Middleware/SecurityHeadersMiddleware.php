@@ -25,8 +25,9 @@ class SecurityHeadersMiddleware
         $response->headers->set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
         $response->headers->set('X-Permitted-Cross-Domain-Policies', 'none');
 
-        // Admin-specific response cache protection: prevent caching of sensitive customer data and dashboard screens
+        // Admin-specific protection: prevent search engine indexing, caching of sensitive customer data and dashboard screens
         if ($request->is('admin*')) {
+            $response->headers->set('X-Robots-Tag', 'noindex, nofollow, noarchive');
             $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0, private');
             $response->headers->set('Pragma', 'no-cache');
             $response->headers->set('Expires', '0');
