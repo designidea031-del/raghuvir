@@ -3564,8 +3564,12 @@ header.main-header .header-sticky.active {
 }
 
 .footer-logo img {
-	width: 100%;
-	max-width: 147px;
+	width: auto;
+	max-width: 220px;
+	max-height: 85px;
+	height: auto;
+	display: block;
+	object-fit: contain;
 }
 
 .footer-contact-info-content {

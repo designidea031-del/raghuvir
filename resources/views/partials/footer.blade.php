@@ -9,7 +9,7 @@
                         <!-- Footer Header Content Start -->
                         <div class="footer-contact-info">
                             <div class="footer-logo">
-                                <img src="{{ setting_asset('footer_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" style="max-height: 80px; width: auto;" width="160" height="48" loading="lazy" decoding="async">
+                                <img src="{{ setting_asset('footer_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" style="max-height: 85px; max-width: 220px; width: auto; height: auto;" width="220" height="88" loading="lazy" decoding="async">
                             </div>
 
                             <!-- Section Title Start -->
