@@ -605,13 +605,18 @@ header.main-header .header-sticky.active {
 }
 
 .header-logo {
-	max-height: 80px;
+	height: 58px;
+	max-height: 64px;
 	width: auto;
+	object-fit: contain;
+	display: block;
+	transition: all 0.3s ease;
 }
 
 @media (max-width: 991px) {
 	.header-logo {
-		max-height: 70px;
+		height: 48px;
+		max-height: 52px;
 	}
 }
 

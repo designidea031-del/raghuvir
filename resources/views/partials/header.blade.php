@@ -4,7 +4,7 @@
             <div class="container">
                 <!-- Logo Start -->
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ setting_asset('header_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" class="header-logo" width="160" height="48">
+                    <img src="{{ setting_asset('header_logo', 'images/Raghuvir Logo White.webp') }}" alt="{{ setting('site_title', 'Raghuvir Atta') }}" class="header-logo" width="180" height="58">
                 </a>
                 <!-- Logo End -->
 
