@@ -607,13 +607,13 @@
         padding-top: 92px !important;
         padding-bottom: 20px !important;
         background-size: cover !important;
-        background-position: 84% bottom !important;
+        background-position: 60% bottom !important;
         background-repeat: no-repeat !important;
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
     .page-header.product-single-hero:before {
-        background: linear-gradient(to right, rgba(15, 10, 5, 0.55) 0%, rgba(15, 10, 5, 0.25) 45%, rgba(15, 10, 5, 0) 100%) !important;
+        background: linear-gradient(to right, rgba(15, 10, 5, 0.55) 0%, rgba(15, 10, 5, 0.22) 48%, rgba(15, 10, 5, 0) 80%) !important;
     }
     .page-header.product-single-hero .page-header-box {
         display: flex !important;
@@ -621,7 +621,7 @@
         align-items: flex-start !important;
         justify-content: flex-start !important;
         text-align: left !important;
-        max-width: 46% !important;
+        max-width: 50% !important;
         margin: 0 !important;
         padding: 0 0 0 16px !important;
     }
@@ -637,7 +637,7 @@
         background: rgba(15, 15, 15, 0.6) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        padding: 4px 8px !important;
+        padding: 4px 10px !important;
         border-radius: 14px !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
@@ -650,7 +650,7 @@
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
-        font-size: 10.5px !important;
+        font-size: 11px !important;
         color: #ffffff !important;
         text-shadow: none !important;
     }
@@ -787,10 +787,10 @@
         min-height: 295px !important;
         padding-top: 88px !important;
         padding-bottom: 18px !important;
-        background-position: 84% bottom !important;
+        background-position: 60% bottom !important;
     }
     .page-header.product-single-hero .page-header-box {
-        max-width: 46% !important;
+        max-width: 50% !important;
         padding: 0 0 0 14px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
@@ -798,7 +798,7 @@
         margin-bottom: 5px !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
-        padding: 3px 7px !important;
+        padding: 3px 8px !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
