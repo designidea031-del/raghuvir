@@ -517,46 +517,53 @@
 
 @media (max-width: 991px) {
     .page-header.product-single-hero {
-        min-height: 340px !important;
-        padding-top: 130px !important;
-        padding-bottom: 35px !important;
+        min-height: 330px !important;
+        padding-top: 110px !important;
+        padding-bottom: 25px !important;
         background-size: cover !important;
-        background-position: center bottom !important;
+        background-position: 68% bottom !important;
+        background-repeat: no-repeat !important;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    .page-header.product-single-hero:before {
+        background: linear-gradient(to bottom, rgba(20, 15, 10, 0.45) 0%, rgba(20, 15, 10, 0.15) 50%, rgba(20, 15, 10, 0.35) 100%) !important;
     }
     .page-header.product-single-hero .page-header-box {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
         text-align: center !important;
         max-width: 100% !important;
         margin: 0 auto !important;
+        padding: 0 20px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
         text-align: center !important;
-        font-size: 30px !important;
-        line-height: 1.2 !important;
+        font-size: 28px !important;
+        line-height: 1.25 !important;
         margin-bottom: 8px !important;
         color: #ffffff !important;
-        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
         background: rgba(15, 15, 15, 0.58) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        padding: 6px 18px !important;
+        padding: 5px 16px !important;
         border-radius: 30px !important;
-        border: 1px solid rgba(255, 255, 255, 0.22) !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
         margin: 0 auto !important;
-        gap: 4px 8px !important;
+        gap: 3px 8px !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
-        font-size: 13.5px !important;
+        font-size: 13px !important;
         color: #ffffff !important;
         text-shadow: none !important;
     }
@@ -597,45 +604,53 @@
 @media (max-width: 767px) {
     .page-header.product-single-hero {
         min-height: 310px !important;
-        padding-top: 105px !important;
-        padding-bottom: 25px !important;
+        padding-top: 92px !important;
+        padding-bottom: 20px !important;
         background-size: cover !important;
-        background-position: center bottom !important;
+        background-position: 84% bottom !important;
+        background-repeat: no-repeat !important;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    .page-header.product-single-hero:before {
+        background: linear-gradient(to right, rgba(15, 10, 5, 0.55) 0%, rgba(15, 10, 5, 0.25) 45%, rgba(15, 10, 5, 0) 100%) !important;
     }
     .page-header.product-single-hero .page-header-box {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
+        align-items: flex-start !important;
         justify-content: flex-start !important;
-        text-align: center !important;
-        max-width: 100% !important;
-        margin: 0 auto !important;
+        text-align: left !important;
+        max-width: 46% !important;
+        margin: 0 !important;
+        padding: 0 0 0 16px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
-        text-align: center !important;
-        font-size: 24px !important;
+        text-align: left !important;
+        font-size: 22px !important;
         line-height: 1.2 !important;
         margin-bottom: 6px !important;
         color: #ffffff !important;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
-        background: rgba(15, 15, 15, 0.62) !important;
+        background: rgba(15, 15, 15, 0.6) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        padding: 4px 15px !important;
-        border-radius: 30px !important;
-        border: 1px solid rgba(255, 255, 255, 0.22) !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+        padding: 4px 8px !important;
+        border-radius: 14px !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
         display: inline-flex !important;
+        flex-wrap: wrap !important;
         align-items: center !important;
-        justify-content: center !important;
-        margin: 0 auto !important;
-        gap: 2px 6px !important;
+        justify-content: flex-start !important;
+        margin: 0 !important;
+        gap: 2px 4px !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
-        font-size: 12px !important;
+        font-size: 10.5px !important;
         color: #ffffff !important;
         text-shadow: none !important;
     }
@@ -770,15 +785,20 @@
 @media (max-width: 480px) {
     .page-header.product-single-hero {
         min-height: 295px !important;
-        padding-top: 100px !important;
-        padding-bottom: 20px !important;
-        background-position: center bottom !important;
+        padding-top: 88px !important;
+        padding-bottom: 18px !important;
+        background-position: 84% bottom !important;
+    }
+    .page-header.product-single-hero .page-header-box {
+        max-width: 46% !important;
+        padding: 0 0 0 14px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
-        font-size: 21px !important;
+        font-size: 20px !important;
+        margin-bottom: 5px !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
-        padding: 3px 12px !important;
+        padding: 3px 7px !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
