@@ -506,8 +506,24 @@
     transform: scale(1.15);
 }
 
+/* Hero Breadcrumb Banner Clarity & Mobile/Tablet Responsiveness */
+.product-single-hero {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
 /* Tablet & Mobile Responsive */
 @media (max-width: 991px) {
+    .page-header.product-single-hero {
+        min-height: 280px !important;
+        padding-top: 140px !important;
+        padding-bottom: 50px !important;
+        background-size: cover !important;
+        background-position: 60% 70% !important;
+    }
     .product-single-card {
         padding: 30px 24px;
         margin-bottom: 35px;
@@ -539,6 +555,13 @@
     }
 }
 @media (max-width: 767px) {
+    .page-header.product-single-hero {
+        min-height: 220px !important;
+        padding-top: 110px !important;
+        padding-bottom: 35px !important;
+        background-size: cover !important;
+        background-position: 65% 72% !important;
+    }
     .product-section-spacer {
         margin-bottom: 30px !important;
     }
@@ -664,6 +687,12 @@
     }
 }
 @media (max-width: 480px) {
+    .page-header.product-single-hero {
+        min-height: 195px !important;
+        padding-top: 95px !important;
+        padding-bottom: 25px !important;
+        background-position: 66% 72% !important;
+    }
     .product-single-heading {
         font-size: 22px;
     }
@@ -722,7 +751,7 @@
             : \App\Models\PageBanner::getPosition('product-details', 'center bottom');
     @endphp
     <!-- Page Header Section Start -->
-    <div class="page-header bg-section dark-section product-single-hero" style="background-image: url('{{ $productBannerUrl }}') !important; background-position: {{ $productBannerPos }} !important;">
+    <div class="page-header bg-section dark-section product-single-hero" style="background-image: url('{{ $productBannerUrl }}'); background-position: {{ $productBannerPos }};">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

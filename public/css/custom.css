@@ -14135,10 +14135,13 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 1199px) {
 	.page-header,
 	.page-header.product-single-hero {
-		min-height: 480px !important;
-		padding-top: 210px !important;
-		padding-bottom: 110px !important;
+		min-height: 380px !important;
+		padding-top: 170px !important;
+		padding-bottom: 80px !important;
 		background-size: cover !important;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		transform: translateZ(0);
 	}
 
 	.page-header.product-single-hero .page-header-box h1,
@@ -14151,9 +14154,13 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 991px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 200px 0 100px !important;
-		min-height: 460px !important;
+		padding: 140px 0 50px !important;
+		min-height: 280px !important;
 		background-size: cover !important;
+		background-position: 60% 70% !important;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		transform: translateZ(0);
 	}
 
 	/* Completely Transparent Header Box - NO box/card, matching original design */
@@ -14211,9 +14218,13 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 767px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 175px 0 85px !important;
-		min-height: 420px !important;
+		padding: 110px 0 35px !important;
+		min-height: 220px !important;
 		background-size: cover !important;
+		background-position: 65% 72% !important;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		transform: translateZ(0);
 	}
 
 	/* Completely Transparent Header Box - NO box/card, matching original design */
@@ -14272,8 +14283,9 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 480px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 165px 0 75px !important;
-		min-height: 400px !important;
+		padding: 95px 0 25px !important;
+		min-height: 195px !important;
+		background-position: 66% 72% !important;
 	}
 }
 
