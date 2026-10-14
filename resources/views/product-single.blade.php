@@ -518,16 +518,16 @@
 @media (max-width: 991px) {
     .page-header.product-single-hero {
         min-height: 330px !important;
-        padding-top: 110px !important;
-        padding-bottom: 25px !important;
+        padding-top: 115px !important;
+        padding-bottom: 30px !important;
         background-size: cover !important;
-        background-position: 68% bottom !important;
+        background-position: center bottom !important;
         background-repeat: no-repeat !important;
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
     .page-header.product-single-hero:before {
-        background: linear-gradient(to bottom, rgba(20, 15, 10, 0.45) 0%, rgba(20, 15, 10, 0.15) 50%, rgba(20, 15, 10, 0.35) 100%) !important;
+        background: linear-gradient(to bottom, rgba(15, 12, 10, 0.45) 0%, rgba(15, 12, 10, 0.18) 50%, rgba(15, 12, 10, 0.45) 100%) !important;
     }
     .page-header.product-single-hero .page-header-box {
         display: flex !important;
@@ -545,27 +545,31 @@
         line-height: 1.25 !important;
         margin-bottom: 8px !important;
         color: #ffffff !important;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8) !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
-        background: rgba(15, 15, 15, 0.58) !important;
+        background: rgba(15, 15, 15, 0.6) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        padding: 5px 16px !important;
+        padding: 6px 18px !important;
         border-radius: 30px !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.22) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
         display: inline-flex !important;
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
         align-items: center !important;
         justify-content: center !important;
         margin: 0 auto !important;
         gap: 3px 8px !important;
+        max-width: 95% !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
         font-size: 13px !important;
         color: #ffffff !important;
         text-shadow: none !important;
+        white-space: nowrap !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item.active {
         color: #EF801C !important;
@@ -604,59 +608,63 @@
 @media (max-width: 767px) {
     .page-header.product-single-hero {
         min-height: 310px !important;
-        padding-top: 92px !important;
-        padding-bottom: 20px !important;
+        padding-top: 105px !important;
+        padding-bottom: 25px !important;
         background-size: cover !important;
-        background-position: 60% bottom !important;
+        background-position: center bottom !important;
         background-repeat: no-repeat !important;
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
     .page-header.product-single-hero:before {
-        background: linear-gradient(to right, rgba(15, 10, 5, 0.55) 0%, rgba(15, 10, 5, 0.22) 48%, rgba(15, 10, 5, 0) 80%) !important;
+        background: linear-gradient(to bottom, rgba(15, 12, 10, 0.45) 0%, rgba(15, 12, 10, 0.18) 50%, rgba(15, 12, 10, 0.45) 100%) !important;
     }
     .page-header.product-single-hero .page-header-box {
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        text-align: left !important;
-        max-width: 50% !important;
-        margin: 0 !important;
-        padding: 0 0 0 16px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 15px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
-        text-align: left !important;
-        font-size: 22px !important;
-        line-height: 1.2 !important;
-        margin-bottom: 6px !important;
+        text-align: center !important;
+        font-size: 24px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 8px !important;
         color: #ffffff !important;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
         background: rgba(15, 15, 15, 0.6) !important;
         backdrop-filter: blur(10px) !important;
         -webkit-backdrop-filter: blur(10px) !important;
-        padding: 4px 10px !important;
-        border-radius: 14px !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+        padding: 5px 16px !important;
+        border-radius: 30px !important;
+        border: 1px solid rgba(255, 255, 255, 0.22) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
         display: inline-flex !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
         align-items: center !important;
-        justify-content: flex-start !important;
-        margin: 0 !important;
-        gap: 2px 4px !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        gap: 2px 6px !important;
+        max-width: 96% !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
-        font-size: 11px !important;
+        font-size: 12px !important;
         color: #ffffff !important;
         text-shadow: none !important;
+        white-space: nowrap !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item.active {
         color: #EF801C !important;
         font-weight: 700 !important;
+        white-space: nowrap !important;
     }
     .product-section-spacer {
         margin-bottom: 30px !important;
@@ -785,24 +793,29 @@
 @media (max-width: 480px) {
     .page-header.product-single-hero {
         min-height: 295px !important;
-        padding-top: 88px !important;
-        padding-bottom: 18px !important;
-        background-position: 60% bottom !important;
+        padding-top: 100px !important;
+        padding-bottom: 20px !important;
+        background-position: center bottom !important;
     }
     .page-header.product-single-hero .page-header-box {
-        max-width: 50% !important;
-        padding: 0 0 0 14px !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 10px !important;
     }
     .page-header.product-single-hero .page-header-box h1 {
-        font-size: 20px !important;
-        margin-bottom: 5px !important;
+        font-size: 21px !important;
+        margin-bottom: 6px !important;
     }
     .page-header.product-single-hero .page-header-box ol.breadcrumb {
-        padding: 3px 8px !important;
+        padding: 4px 12px !important;
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
+        max-width: 98% !important;
     }
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item,
     .page-header.product-single-hero .page-header-box ol li.breadcrumb-item a {
         font-size: 11px !important;
+        white-space: nowrap !important;
     }
     .product-single-heading {
         font-size: 22px;
