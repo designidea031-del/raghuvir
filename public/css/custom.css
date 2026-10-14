@@ -14154,10 +14154,10 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 991px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 140px 0 50px !important;
-		min-height: 280px !important;
+		padding: 130px 0 35px !important;
+		min-height: 340px !important;
 		background-size: cover !important;
-		background-position: 60% 70% !important;
+		background-position: center bottom !important;
 		image-rendering: -webkit-optimize-contrast;
 		image-rendering: crisp-edges;
 		transform: translateZ(0);
@@ -14179,38 +14179,45 @@ header.main-header .header-sticky.active {
 
 	.page-header.product-single-hero .page-header-box h1,
 	.page-header .page-header-box h1 {
-		font-size: 32px !important;
-		line-height: 1.25 !important;
-		margin-bottom: 10px !important;
+		font-size: 30px !important;
+		line-height: 1.2 !important;
+		margin-bottom: 8px !important;
 		color: #ffffff !important;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
 	}
 
 	.page-header.product-single-hero .page-header-box ol.breadcrumb,
 	.page-header .page-header-box ol.breadcrumb {
 		margin: 0 auto !important;
-		padding: 0 !important;
-		background: transparent !important;
-		border: none !important;
-		box-shadow: none !important;
+		padding: 6px 18px !important;
+		background: rgba(15, 15, 15, 0.58) !important;
+		backdrop-filter: blur(10px) !important;
+		-webkit-backdrop-filter: blur(10px) !important;
+		border: 1px solid rgba(255, 255, 255, 0.22) !important;
+		border-radius: 30px !important;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 4px 8px !important;
 	}
 
 	.page-header-box ol li.breadcrumb-item,
 	.page-header-box ol li.breadcrumb-item a {
-		font-size: 14px !important;
+		font-size: 13.5px !important;
 		color: #ffffff !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		text-shadow: none !important;
 	}
 
 	.page-header-box ol li.breadcrumb-item.active {
 		color: #EF801C !important;
-		font-weight: 600 !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		font-weight: 700 !important;
+		text-shadow: none !important;
 	}
 
 	.page-header-box ol .breadcrumb-item+.breadcrumb-item::before {
 		color: rgba(255, 255, 255, 0.75) !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		text-shadow: none !important;
 	}
 }
 
@@ -14218,10 +14225,10 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 767px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 110px 0 35px !important;
-		min-height: 220px !important;
+		padding: 105px 0 25px !important;
+		min-height: 310px !important;
 		background-size: cover !important;
-		background-position: 65% 72% !important;
+		background-position: center bottom !important;
 		image-rendering: -webkit-optimize-contrast;
 		image-rendering: crisp-edges;
 		transform: translateZ(0);
@@ -14243,39 +14250,45 @@ header.main-header .header-sticky.active {
 
 	.page-header.product-single-hero .page-header-box h1,
 	.page-header .page-header-box h1 {
-		font-size: 26px !important;
-		line-height: 1.25 !important;
-		margin-bottom: 8px !important;
+		font-size: 24px !important;
+		line-height: 1.2 !important;
+		margin-bottom: 6px !important;
 		color: #ffffff !important;
-		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
 	}
 
 	.page-header.product-single-hero .page-header-box ol.breadcrumb,
 	.page-header .page-header-box ol.breadcrumb {
 		margin: 0 auto !important;
-		padding: 0 !important;
-		background: transparent !important;
-		border: none !important;
-		box-shadow: none !important;
-		gap: 2px 4px !important;
+		padding: 4px 15px !important;
+		background: rgba(15, 15, 15, 0.62) !important;
+		backdrop-filter: blur(10px) !important;
+		-webkit-backdrop-filter: blur(10px) !important;
+		border: 1px solid rgba(255, 255, 255, 0.22) !important;
+		border-radius: 30px !important;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		gap: 2px 6px !important;
 	}
 
 	.page-header-box ol li.breadcrumb-item,
 	.page-header-box ol li.breadcrumb-item a {
-		font-size: 13px !important;
+		font-size: 12px !important;
 		color: #ffffff !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		text-shadow: none !important;
 	}
 
 	.page-header-box ol li.breadcrumb-item.active {
 		color: #EF801C !important;
 		font-weight: 700 !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		text-shadow: none !important;
 	}
 
 	.page-header-box ol .breadcrumb-item+.breadcrumb-item::before {
 		color: rgba(255, 255, 255, 0.75) !important;
-		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.75) !important;
+		text-shadow: none !important;
 	}
 }
 
@@ -14283,9 +14296,24 @@ header.main-header .header-sticky.active {
 @media only screen and (max-width: 480px) {
 	.page-header,
 	.page-header.product-single-hero {
-		padding: 95px 0 25px !important;
-		min-height: 195px !important;
-		background-position: 66% 72% !important;
+		padding: 100px 0 20px !important;
+		min-height: 295px !important;
+		background-position: center bottom !important;
+	}
+
+	.page-header.product-single-hero .page-header-box h1,
+	.page-header .page-header-box h1 {
+		font-size: 21px !important;
+	}
+
+	.page-header.product-single-hero .page-header-box ol.breadcrumb,
+	.page-header .page-header-box ol.breadcrumb {
+		padding: 3px 12px !important;
+	}
+
+	.page-header-box ol li.breadcrumb-item,
+	.page-header-box ol li.breadcrumb-item a {
+		font-size: 11px !important;
 	}
 }
 
